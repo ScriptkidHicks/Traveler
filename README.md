@@ -12,3 +12,6 @@ Evan Pariser: QA / Data Handling
 Jordan Smith: Backend Development
 Thomas Joyce: Algorith Development
 Tammas Hicks: UX/UI
+
+
+//testing changes
