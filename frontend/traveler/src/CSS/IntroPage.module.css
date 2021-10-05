@@ -2,11 +2,10 @@
   background-color: #5297ac;
   height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .shineBox {
+  height: 20px;
   padding: 20px 30px;
   font-size: 20px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -18,8 +17,11 @@
   box-shadow: 10px 10px 10px black;
   text-align: center;
   font-weight: 700;
-  position: relative;
+  position: absolute;
   overflow: hidden;
+  transform: translate(-50%, -50%);
+  left: 50vw;
+  top: 60vh;
 }
 
 .shineBox:before,
@@ -37,10 +39,31 @@
 }
 
 .shineBox::after {
-  transition-delay: 0.2s;
+  transition-delay: 0.25s;
 }
 
 .shineBox:hover:before,
 .shineBox:hover:after {
   left: 100%;
+}
+
+.introTitle {
+  font-weight: 700;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-shadow: 4px 4px 4px black;
+  color: #e6e0cf;
+  font-size: 80px;
+  position: absolute;
+  top: 15vh;
+  left: 15vw;
+  padding: 20px 20px;
+  transition: all 0.4s ease;
+  -webkit-transition: all 1s ease;
+}
+
+.introTitle:hover {
+  border-radius: 60px;
+  background-color: #baa6ba;
+  transition: all 0.4s ease;
+  -webkit-transition: all 2s ease;
 }
