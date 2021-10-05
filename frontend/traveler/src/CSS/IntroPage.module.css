@@ -5,6 +5,8 @@
 }
 
 .shineBox {
+  z-index: 99;
+  border-radius: 15px;
   height: 20px;
   padding: 20px 30px;
   font-size: 20px;
@@ -48,6 +50,7 @@
 }
 
 .introTitle {
+  z-index: 1;
   font-weight: 700;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-shadow: 4px 4px 4px black;
@@ -66,4 +69,53 @@
   background-color: #baa6ba;
   transition: all 0.4s ease;
   -webkit-transition: all 2s ease;
+}
+
+.trademark {
+  font-size: 15px;
+}
+
+.shoreline {
+  z-index: 0;
+  position: absolute;
+  left: 20vw;
+  top: 30vh;
+  width: 500px;
+  object-fit: contain;
+  opacity: 0;
+  transition: ease-in-out 2s;
+}
+
+.shoreline:hover {
+  opacity: 1;
+}
+
+.NYMap {
+  z-index: 0;
+  position: absolute;
+  left: 40vw;
+  top: 20vh;
+  width: 500px;
+  object-fit: contain;
+  opacity: 0;
+  transition: ease-in-out 2s;
+}
+
+.NYMap:hover {
+  opacity: 1;
+}
+
+.HCMap {
+  z-index: 0;
+  position: absolute;
+  left: 60vw;
+  top: 50vh;
+  width: 600px;
+  object-fit: contain;
+  opacity: 0;
+  transition: ease-in-out 2s;
+}
+
+.HCMap:hover {
+  opacity: 1;
 }
