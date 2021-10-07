@@ -1,4 +1,5 @@
 import classes from "../CSS/IntroPage.module.css";
+import { Link } from "react-router-dom";
 
 import Shoreline from "../Images/blueRedMap.png";
 import NYMap from "../Images/NYCMap.png";
@@ -10,12 +11,9 @@ function IntroPage() {
       <h1 className={classes.introTitle}>
         Welcome to Traveler<sup className={classes.trademark}>tm</sup>
       </h1>
-      <a
-        href="https://www.youtube.com/watch?v=JB6AEy3PCdw&ab_channel=LearnDesign"
-        className={classes.shineBox}
-      >
+      <Link to="/MainPage" className={classes.shineBox}>
         Find Your Route Solution
-      </a>
+      </Link>
 
       <img
         alt="highContrast shoreline"
