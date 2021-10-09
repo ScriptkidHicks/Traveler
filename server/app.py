@@ -1,16 +1,8 @@
 import flask
-import logging
+import time
 
-## Globals
 app = flask.Flask(__name__)
 
-@app.route("/")
-def hello():
-    return "Hello world!"
-
-## Initialize/Run the application
-if app.debug:
-    app.logger.setLevel(logging.DEBUG)
-
-if __name__ == "__main__":
-    app.run(port="5000", host="0.0.0.0")
+@app.route("/time")
+def get_time():
+    return {'time': time.strftime("%H:%M", time.localtime())}
