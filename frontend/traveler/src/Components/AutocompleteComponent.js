@@ -1,10 +1,15 @@
 import React from "react";
-import GooglePlacesAutocomplete from "react-google-places-autocomplete";
+import Autocomplete from "react-google-autocomplete";
 import GOOGLEMAPS_API_KEY from "../key";
 
-const AutocompleteComponent = () => (
+const AutocompleteComponent = (props) => (
   <div>
-    <GooglePlacesAutocomplete apiKey={GOOGLEMAPS_API_KEY} />
+    <Autocomplete
+      apiKey={GOOGLEMAPS_API_KEY}
+      onPlaceSelected={(place) => {
+        props.placeChanger(place);
+      }}
+    />
   </div>
 );
 
