@@ -12,14 +12,15 @@ function MainPage() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Contents: "adresses",
+        Contents: "addresses",
       },
       body: JSON.stringify({ title: "Set of locations" }),
     };
 
     fetch("/get_order", requestOptions)
       .then((response) => response.json())
-      .then((data) => this.setState({ postId: data.id }));
+      .then((data) => console.log(data))
+      // .then((data) => this.setState({ postId: data.id }));
   }
 
   return (
