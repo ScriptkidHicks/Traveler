@@ -6,10 +6,26 @@ import AutocompleteComponent from "../Components/AutocompleteComponent";
 
 function MainPage() {
   const [placeOne, setPlaceOne] = useState(null);
+
+  function postToBackend() {
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Contents: "adresses",
+      },
+      body: JSON.stringify({ title: "Set of locations" }),
+    };
+
+    fetch("/get_order", requestOptions)
+      .then((response) => response.json())
+      .then((data) => this.setState({ postId: data.id }));
+  }
+
   return (
     <div className={classes.mainBody}>
       <AutocompleteComponent placeChanger={setPlaceOne} />
-      <button onClick={() => console.log(placeOne)}>Click Me</button>
+      <button onClick={postToBackend}>Click Me</button>
     </div>
   );
 }
