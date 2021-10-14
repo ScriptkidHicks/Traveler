@@ -14,13 +14,13 @@ function MainPage() {
         "Content-Type": "application/json",
         Contents: "addresses",
       },
-      body: JSON.stringify({ title: "Set of locations" }),
+      body: JSON.stringify({ title: "Set of locations", locations: placeOne }),
     };
 
     fetch("/get_order", requestOptions)
       .then((response) => response.json())
-      .then((data) => console.log(data))
-      // .then((data) => this.setState({ postId: data.id }));
+      .then((data) => console.log(data));
+    // .then((data) => this.setState({ postId: data.id }));
   }
 
   return (
