@@ -1,5 +1,3 @@
-import GOOGLEMAPS_API_KEY from "../key";
-
 import styled from "styled-components";
 
 import classes from "../CSS/MainPage.module.css";

@@ -3,6 +3,7 @@ import "./CSS/App.css";
 
 import IntroPage from "./Pages/IntroPage";
 import MainPage from "./Pages/MainPage";
+import ResultsPage from "./Pages/ResultsPage";
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
         </Route>
         <Route path="/MainPage">
           <MainPage />
+        </Route>
+        <Route path="/Results">
+          <ResultsPage />
         </Route>
       </Switch>
     </div>
