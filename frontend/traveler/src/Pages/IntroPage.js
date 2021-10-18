@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import Shoreline from "../Images/blueRedMap.png";
 import NYMap from "../Images/NYCMap.png";
 import HCMap from "../Images/highContrastMap.gif";
+import BWMap from "../Images/bandw.png";
+import FireMap from "../Images/fireLA.png";
 
 function IntroPage() {
   return (
@@ -22,6 +24,7 @@ function IntroPage() {
       />
       <img alt="New York Map" src={NYMap} className={classes.NYMap} />
       <img alt="high contrast map" src={HCMap} className={classes.HCMap} />
+      <img alt="Black and White map" src={BWMap} className={classes.BWMap}/>
     </div>
   );
 }
