@@ -119,3 +119,18 @@
 .HCMap:hover {
   opacity: 1;
 }
+
+.BWMap {
+  z-index: 0;
+  position: absolute;
+  left: 80vw;
+  top: 5vh;
+  width: 500px;
+  object-fit: contain;
+  opacity: 0;
+  transition: ease-in-out 2s;
+}
+
+.BWMap{
+  opacity: 1;
+}
