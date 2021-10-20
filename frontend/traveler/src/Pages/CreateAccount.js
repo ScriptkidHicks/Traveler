@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import classes from "../CSS/CreateAccount.module.css";
 
 function CreateAccount() {
@@ -46,9 +47,9 @@ function CreateAccount() {
           <br />
           <br />
           <p className={classes.form__text}>
-            <a className={classes.form__link} href="./" id="linkLogin">
+            <Link className={classes.form__link} to="/SignIn">
               Already have an account? Sign in
-            </a>
+            </Link>
           </p>
         </form>
       </div>

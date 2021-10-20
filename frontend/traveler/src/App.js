@@ -17,6 +17,9 @@ function App() {
         <Route path="/CreateAccount">
           <CreateAccount />
         </Route>
+        <Route path="/SignIn">
+          <SignIn />
+        </Route>
         <Route path="/MainPage">
           <MainPage />
         </Route>
