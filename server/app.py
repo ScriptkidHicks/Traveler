@@ -2,6 +2,7 @@ import flask
 import json
 import urllib
 import requests
+from key import API_KEY
 
 app = flask.Flask(__name__)
 
@@ -9,12 +10,11 @@ app = flask.Flask(__name__)
 #   Globals
 ###
 base_url = "https://maps.googleapis.com/maps/api/distancematrix/json?"
-API_KEY = ""
 
 """
 to_url_string
     Converts the given list of locations to a string with url-encoding
-    url-encoding translates " " -> "%20", etc.
+    url-encoding translates " " -> "%20", "," -> "%2C", etc.
     We seperate the addresses with "|"
 """
 def to_url_string(addrs):
@@ -32,24 +32,38 @@ def to_adj_mat(data):
         result.append([])
         for elem in row['elements']:
             # Each element has distance and time keys
-            # Both of those has a value (the raw value in km/sec), 
+            # Both of those have a value (the raw value in km/sec), 
             # and a formatted value (123 Km or 1 hr 20 min)
             result[i].append(elem["distance"]["value"])
 
     return result
+
+"""
+pretty_print_matrix
+    Just to see the matrix with formatting
+"""
+def pretty_print(mat):
+    for row in mat:
+        for col in row:
+            print(col, end="\t")
+        print()
 
 """ 
 POST request function
 """
 @app.route("/get_order", methods=["POST"])
 def get_order():
-    locations = flask.request.data
-    ##print(locations)
+    # Get the request data, convert it to a dictionary, and grab the 'locations' value
+    request_data = json.loads(flask.request.data)['locations']
 
-    """ CODE FOR API/ALGORITHM CALL
+    # Grab only the locations that have values
+    locations = [loc for loc in request_data if loc is not None]
 
-    ## Get the addresses to a list
+    # Get the formatted addresses from the location dictionaries 
     addresses = []
+    for location in locations:
+        addresses.append(location['formatted_address'])
+
 
     ## Prepare the Distance Matrix API call
     payload = headers = {}
@@ -67,7 +81,10 @@ def get_order():
     ## Get the adjacency matrix from the data
     adjMatrix = to_adj_mat(data)
 
-    ## Call the algorithm with the adjacency matrix and get the optimal route
-    """
+    # Debugging
+    # pretty_print(adjMatrix)
 
-    return locations
+    ## Call the algorithm with the adjacency matrix and get the optimal route
+
+    # Until algorithm is added, just return back in order
+    return {"result": addresses}
