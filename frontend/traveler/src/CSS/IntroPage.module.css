@@ -1,5 +1,5 @@
 .mainbody {
-  background-color: #5297ac;
+  background-color: #91B2C7;
   height: 100vh;
   display: flex;
 }
@@ -58,7 +58,7 @@
   font-size: 80px;
   position: absolute;
   top: 15vh;
-  left: 15vw;
+  left: 23vw;
   padding: 20px 20px;
   transition: all 0.4s ease;
   -webkit-transition: all 1s ease;
@@ -78,8 +78,8 @@
 .shoreline {
   z-index: 0;
   position: absolute;
-  left: 20vw;
-  top: 30vh;
+  left: 25vw;
+  top: 69vh;
   width: 500px;
   object-fit: contain;
   opacity: 0;
@@ -93,8 +93,8 @@
 .NYMap {
   z-index: 0;
   position: absolute;
-  left: 40vw;
-  top: 20vh;
+  left: 50vw;
+  top: 69vh;
   width: 500px;
   object-fit: contain;
   opacity: 0;
@@ -108,8 +108,8 @@
 .HCMap {
   z-index: 0;
   position: absolute;
-  left: 60vw;
-  top: 50vh;
+  left: 42vw;
+  top: 44vh;
   width: 600px;
   object-fit: contain;
   opacity: 0;
@@ -123,14 +123,149 @@
 .BWMap {
   z-index: 0;
   position: absolute;
-  left: 80vw;
-  top: 5vh;
+  left: 73vw;
+  top: 0vh;
   width: 500px;
   object-fit: contain;
   opacity: 0;
   transition: ease-in-out 2s;
 }
 
-.BWMap{
+.BWMap:hover {
+  opacity: 1;
+}
+
+.FireMapLA {
+  z-index: 0;
+  position: absolute;
+  left: 0vw;
+  top: 0vh;
+  width: 500px;
+  object-fit: contain;
+  opacity: 0;
+  transition: ease-in-out 2s;
+}
+
+.FireMapLA:hover {
+  opacity: 1;
+}
+
+.GreenMap {
+  z-index: 0;
+  position: absolute;
+  left: 0vw;
+  top: 29vh;
+  width: 500px;
+  object-fit: contain;
+  opacity: 0;
+  transition: ease-in-out 2s;
+}
+
+.GreenMap:hover {
+  opacity: 1;
+}
+
+.SPMap {
+  z-index: 0;
+  position: absolute;
+  left: 50vw;
+  top: 30vh;
+  width: 500px;
+  object-fit: contain;
+  opacity: 0;
+  transition: ease-in-out 2s;
+}
+
+.SPMap:hover {
+  opacity: 1;
+}
+
+.PortlandMap {
+  z-index: 0;
+  position: absolute;
+  left: 72vw;
+  top: 50vh;
+  width: 500px;
+  object-fit: contain;
+  opacity: 0;
+  transition: ease-in-out 2s;
+}
+
+.PortlandMap:hover {
+  opacity: 1;
+}
+
+.SLCMap {
+  z-index: 0;
+  position: absolute;
+  left: 28vw;
+  top: 0vh;
+  width: 500px;
+  object-fit: contain;
+  opacity: 0;
+  transition: ease-in-out 2s;
+}
+
+.SLCMap:hover {
+  opacity: 1;
+}
+
+.SeaMap {
+  z-index: 0;
+  position: absolute;
+  left: 0vw;
+  top: 55vh;
+  width: 500px;
+  object-fit: contain;
+  opacity: 0;
+  transition: ease-in-out 2s;
+}
+
+.SeaMap:hover {
+  opacity: 1;
+}
+
+.SprawlMap {
+  z-index: 0;
+  position: absolute;
+  left: 55vw;
+  top: 0vh;
+  width: 500px;
+  object-fit: contain;
+  opacity: 0;
+  transition: ease-in-out 2s;
+}
+
+.SprawlMap:hover {
+  opacity: 1;
+}
+
+.Multicolor {
+  z-index: 0;
+  position: absolute;
+  left: 75vw;
+  top: 80vh;
+  width: 500px;
+  object-fit: contain;
+  opacity: 0;
+  transition: ease-in-out 2s;
+}
+
+.Multicolor:hover {
+  opacity: 1;
+}
+
+.NashvilleYellow {
+  z-index: 0;
+  position: absolute;
+  left: 24vw;
+  top: 40vh;
+  width: 500px;
+  object-fit: contain;
+  opacity: 0;
+  transition: ease-in-out 2s;
+}
+
+.NashvilleYellow:hover {
   opacity: 1;
 }
