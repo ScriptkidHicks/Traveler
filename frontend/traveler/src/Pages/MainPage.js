@@ -51,31 +51,60 @@ function MainPage() {
 
   return (
     <div className={classes.mainBody}>
-      <InputWrapper>
-        <InputLabel>Place of Origin</InputLabel>
-        <AutocompleteComponent placeChanger={setOrigin} />
-        <AutocompleteComponent placeChanger={setPlaceOne} />
-        <AutocompleteComponent placeChanger={setPlaceTwo} />
-        <AutocompleteComponent placeChanger={setPlaceThree} />
-        <AutocompleteComponent placeChanger={setPlaceFour} />
-        <AutocompleteComponent placeChanger={setPlaceFive} />
-        <AutocompleteComponent placeChanger={setPlaceSix} />
-        <AutocompleteComponent placeChanger={setPlaceSeven} />
-        <AutocompleteComponent placeChanger={setPlaceEight} />
-        <AutocompleteComponent placeChanger={setPlaceNine} />
-        <AutocompleteComponent placeChanger={setPlaceTen} />
-        <button onClick={postToBackend}>Click Me</button>
-      </InputWrapper>
+      <div className={classes.container}>
+        <h1 className={classes.formTitle}>Destinations</h1>
+        <div className={classes.formWrapper}>
+          <form className={classes.form}>
+            <AutocompleteComponent
+              className={classes.form__input}
+              placeChanger={setOrigin}
+            />
+            <AutocompleteComponent
+              className={classes.form__input}
+              placeChanger={setPlaceOne}
+            />
+            <AutocompleteComponent
+              className={classes.form__input}
+              placeChanger={setPlaceTwo}
+            />
+            <AutocompleteComponent
+              className={classes.form__input}
+              placeChanger={setPlaceThree}
+            />
+            <AutocompleteComponent
+              className={classes.form__input}
+              placeChanger={setPlaceFour}
+            />
+            <AutocompleteComponent
+              className={classes.form__input}
+              placeChanger={setPlaceFive}
+            />
+            <AutocompleteComponent
+              className={classes.form__input}
+              placeChanger={setPlaceSix}
+            />
+            <AutocompleteComponent
+              className={classes.form__input}
+              placeChanger={setPlaceSeven}
+            />
+            <AutocompleteComponent
+              className={classes.form__input}
+              placeChanger={setPlaceEight}
+            />
+            <AutocompleteComponent
+              className={classes.form__input}
+              placeChanger={setPlaceNine}
+            />
+            <AutocompleteComponent
+              className={classes.form__input}
+              placeChanger={setPlaceTen}
+            />
+            <button onClick={postToBackend}>Click Me</button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 }
 
 export default MainPage;
-
-const InputLabel = styled.label`
-  color: green;
-`;
-
-const InputWrapper = styled.div`
-  background-color: black;
-`;
