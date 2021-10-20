@@ -4,6 +4,8 @@ import "./CSS/App.css";
 import IntroPage from "./Pages/IntroPage";
 import MainPage from "./Pages/MainPage";
 import ResultsPage from "./Pages/ResultsPage";
+import SignIn from "./Pages/SignIn";
+import CreateAccount from "./Pages/CreateAccount";
 
 function App() {
   return (
@@ -11,6 +13,9 @@ function App() {
       <Switch>
         <Route path="/" exact>
           <IntroPage />
+        </Route>
+        <Route path="/CreateAccount">
+          <CreateAccount />
         </Route>
         <Route path="/MainPage">
           <MainPage />

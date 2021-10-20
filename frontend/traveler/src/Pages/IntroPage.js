@@ -11,7 +11,7 @@ function IntroPage() {
       <h1 className={classes.introTitle}>
         Welcome to Traveler<sup className={classes.trademark}>tm</sup>
       </h1>
-      <Link to="/MainPage" className={classes.shineBox}>
+      <Link to="/CreateAccount" className={classes.shineBox}>
         Find Your Route Solution
       </Link>
 

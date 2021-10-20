@@ -1,12 +1,15 @@
 import styled from "styled-components";
-import MyComponent from "../Components/MyComponent";
 import MainMaps from "../Components/MyDirectionsRenderer";
 
 function ResultsPage() {
   return (
     <PageWrapper>
       <MapContainer>
-        <MainMaps></MainMaps>
+        <MainMaps
+          org1={"eugene, or"}
+          dest1={"eugene, or"}
+          dest2={"eugene, or"}
+        ></MainMaps>
       </MapContainer>
     </PageWrapper>
   );

@@ -15,7 +15,7 @@
   letter-spacing: 1px;
   text-decoration: none;
   text-transform: uppercase;
-  background-color: #a6c6c1;
+  background-color: #6bb66b;
   box-shadow: 10px 10px 10px black;
   text-align: center;
   font-weight: 700;
@@ -24,6 +24,10 @@
   transform: translate(-50%, -50%);
   left: 50vw;
   top: 60vh;
+}
+
+.shineBox:hover {
+  background-color: #007f69;
 }
 
 .shineBox:before,
@@ -66,7 +70,7 @@
 
 .introTitle:hover {
   border-radius: 60px;
-  background-color: #baa6ba;
+  background-color: #5dacc4;
   transition: all 0.4s ease;
   -webkit-transition: all 2s ease;
 }
