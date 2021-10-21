@@ -16,7 +16,6 @@ const center = {
   lat: 31.582045,
   lng: 74.329376,
 };
-const options = {};
 
 const MainMaps = (props) => {
   const { isLoaded, loadError } = useLoadScript({
@@ -54,12 +53,6 @@ const MainMaps = (props) => {
   }, []);
   if (loadError) return "Error loading maps";
   if (!isLoaded) return "loading maps";
-
-  const DirectionsServiceOptionOne = {
-    destination: destination2,
-    origin: origin2,
-    travelMode: "DRIVING",
-  };
 
   const DirectionsServiceOptionTwo = {
     destination: destination3,

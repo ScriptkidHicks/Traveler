@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 
 import classes from "../CSS/MainPage.module.css";
 import React, { useState } from "react";
@@ -33,7 +34,9 @@ function MainPage() {
     placeTen,
   ];
 
-  function postToBackend() {
+  const history = useHistory();
+
+  function postToBackend(props) {
     const requestOptions = {
       method: "POST",
       headers: {
@@ -45,7 +48,8 @@ function MainPage() {
 
     fetch("/get_order", requestOptions)
       .then((response) => response.json())
-      .then((data) => console.log(data));
+      .then((data) => console.log(data))
+      .finally(history.push("/Results"));
     // .then((data) => this.setState({ postId: data.id }));
   }
 

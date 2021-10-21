@@ -5,11 +5,7 @@ function ResultsPage() {
   return (
     <PageWrapper>
       <MapContainer>
-        <MainMaps
-          org1={"eugene, or"}
-          dest1={"eugene, or"}
-          dest2={"eugene, or"}
-        ></MainMaps>
+        <MainMaps org1={"eugene, or"}></MainMaps>
       </MapContainer>
     </PageWrapper>
   );
