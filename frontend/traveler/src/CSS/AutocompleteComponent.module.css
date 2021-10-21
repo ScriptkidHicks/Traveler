@@ -7,6 +7,7 @@
   border: 1px solid #dddddd;
   outline: none;
   background: #eeeeee;
+  margin-top: 1rem;
 }
 
 .form__input:focus {

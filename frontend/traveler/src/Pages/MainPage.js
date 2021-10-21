@@ -52,55 +52,57 @@ function MainPage() {
   return (
     <div className={classes.mainBody}>
       <div className={classes.container}>
-        <h1 className={classes.formTitle}>Destinations</h1>
         <div className={classes.formWrapper}>
           <form className={classes.form}>
+            <h1 className={classes.formTitle}>Destinations</h1>
             <AutocompleteComponent
-              className={classes.form__input}
               placeChanger={setOrigin}
+              placeholder={"Place of origin"}
             />
             <AutocompleteComponent
-              className={classes.form__input}
               placeChanger={setPlaceOne}
+              placeholder={"Location one"}
             />
             <AutocompleteComponent
-              className={classes.form__input}
               placeChanger={setPlaceTwo}
+              placeholder={"Location two"}
             />
             <AutocompleteComponent
-              className={classes.form__input}
               placeChanger={setPlaceThree}
+              placeholder={"Location three"}
             />
             <AutocompleteComponent
-              className={classes.form__input}
               placeChanger={setPlaceFour}
+              placeholder={"Location four"}
             />
             <AutocompleteComponent
-              className={classes.form__input}
               placeChanger={setPlaceFive}
+              placeholder={"Location five"}
             />
             <AutocompleteComponent
-              className={classes.form__input}
               placeChanger={setPlaceSix}
+              placeholder={"Location six"}
             />
             <AutocompleteComponent
-              className={classes.form__input}
               placeChanger={setPlaceSeven}
+              placeholder={"Location seven"}
             />
             <AutocompleteComponent
-              className={classes.form__input}
               placeChanger={setPlaceEight}
+              placeholder={"Location eight"}
             />
             <AutocompleteComponent
-              className={classes.form__input}
               placeChanger={setPlaceNine}
+              placeholder={"Location nine"}
             />
             <AutocompleteComponent
-              className={classes.form__input}
               placeChanger={setPlaceTen}
+              placeholder={"Location ten"}
             />
-            <button onClick={postToBackend}>Click Me</button>
           </form>
+          <button className={classes.form__button} onClick={postToBackend}>
+            Submit Locations
+          </button>
         </div>
       </div>
     </div>

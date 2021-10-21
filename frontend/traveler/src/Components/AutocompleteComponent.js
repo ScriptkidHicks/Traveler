@@ -11,6 +11,7 @@ const AutocompleteComponent = (props) => (
       onPlaceSelected={(place) => {
         props.placeChanger(place);
       }}
+      placeholder={props.placeholder}
     />
   </div>
 );
