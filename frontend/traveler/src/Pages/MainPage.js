@@ -4,6 +4,9 @@ import classes from "../CSS/MainPage.module.css";
 import React, { useState } from "react";
 import AutocompleteComponent from "../Components/AutocompleteComponent";
 
+import europecollage from "../Images/europecollage.jpeg"
+import PostCard from "../Images/PostCard.png"
+
 function MainPage() {
   // this method of doing this is a little uhhhhhhhhhhhhhh bad, but it works
   // I can revisit it in the future. Maybe a struct that can be imported.
@@ -66,6 +69,10 @@ function MainPage() {
         <AutocompleteComponent placeChanger={setPlaceTen} />
         <button onClick={postToBackend}>Click Me</button>
       </InputWrapper>
+
+      <img alt="europe postcard things" src={europecollage} className={classes.europecollage} />
+      <img alt="Post card for address input" src={PostCard} className={classes.PostCard} />
+
     </div>
   );
 }
