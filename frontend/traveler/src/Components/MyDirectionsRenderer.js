@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   GoogleMap,
   useLoadScript,
@@ -16,16 +16,23 @@ const center = {
   lat: 31.582045,
   lng: 74.329376,
 };
-const options = {};
 
-const MainMaps = () => {
+const MainMaps = (props) => {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: GOOGLEMAPS_API_KEY,
     libraries,
   });
 
-  const [origin2, setOrigin2] = React.useState("lahore");
-  const [destination2, setDestination2] = React.useState("gujranwala");
+  const [org3, setOrg3] = useState(props.dest1);
+  const [destination3, setDestination3] = useState(props.dest2);
+
+  const waypts = [
+    { location: "salem, or", stopover: true },
+    { location: "Bend, or", stopover: true },
+  ];
+
+  const [origin2, setOrigin2] = React.useState(props.org1);
+  const [destination2, setDestination2] = React.useState(props.dest1);
   const [response, setResponse] = React.useState(null);
 
   const directionsCallback = (response) => {
@@ -47,9 +54,10 @@ const MainMaps = () => {
   if (loadError) return "Error loading maps";
   if (!isLoaded) return "loading maps";
 
-  const DirectionsServiceOption = {
-    destination: destination2,
-    origin: origin2,
+  const DirectionsServiceOptionTwo = {
+    destination: destination3,
+    origin: org3,
+    waypoints: waypts,
     travelMode: "DRIVING",
   };
 
@@ -68,9 +76,8 @@ const MainMaps = () => {
             }}
           />
         )}
-
         <DirectionsService
-          options={DirectionsServiceOption}
+          options={DirectionsServiceOptionTwo}
           callback={directionsCallback}
         />
       </GoogleMap>
