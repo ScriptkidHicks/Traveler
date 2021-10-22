@@ -2,53 +2,41 @@ import flask
 import json
 import urllib
 import requests
-from datetime import datetime, timedelta
-
-from requests.api import request
-import jwt
+from login import login_page
 from key import API_KEY
 
 app = flask.Flask(__name__)
+app.register_blueprint(login_page)
 
 ###
 #   Globals
 ###
 base_url = "https://maps.googleapis.com/maps/api/distancematrix/json?"
-JWT_SECRET = 'test_secret'
-JWT_ALGORITHM = 'HS256'
-JWT_EXP_DELTA_SECONDS = 20
-
-VALID_USERS = [
-    {
-        "username": "someuser",
-        "password": "password1"
-    }
-]
 
 # def json_response(body='', **kwargs):
 #     kwargs['body'] = json.dumps(body or kwargs['body']).encode('utf-8')
 #     kwargs['content_type'] = 'text/json'
 #     return web.Response(**kwargs)
 
-@app.route('/login', methods=['POST'])
-def login():
-    # Get the data
-    request_data = (flask.request.data)
+# @app.route('/login', methods=['POST'])
+# def login():
+#     # Get the data
+#     request_data = (flask.request.data)
 
-    # Convert the data to dictionary 
-    user = json.loads(request_data.decode('utf-8').replace("'", '"'))
+#     # Convert the data to dictionary 
+#     user = json.loads(request_data.decode('utf-8').replace("'", '"'))
 
-    if user not in VALID_USERS:
-        return {'message': 'Wrong credentials'}, 400
+#     if user not in VALID_USERS:
+#         return {'message': 'Wrong credentials'}, 400
 
-    payload = {
-        'user_id': user['username'],
-        'exp': datetime.utcnow() + timedelta(seconds=JWT_EXP_DELTA_SECONDS)
-    }
+#     payload = {
+#         'user_id': user['username'],
+#         'exp': datetime.utcnow() + timedelta(seconds=JWT_EXP_DELTA_SECONDS)
+#     }
 
-    jwt_token = jwt.encode(payload, JWT_SECRET, JWT_ALGORITHM)
+#     jwt_token = jwt.encode(payload, JWT_SECRET, JWT_ALGORITHM)
 
-    return {'token': jwt_token}, 200
+#     return {'token': jwt_token}, 200
 
 @app.route("/test")
 def test():
