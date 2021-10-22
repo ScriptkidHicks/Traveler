@@ -8,9 +8,6 @@
 
   margin: 0;
   height: 100vh;
-<<<<<<< HEAD
-  /* display: flex; */
-=======
   display: flex;
   align-items: center;
   justify-content: left;
@@ -101,7 +98,6 @@
 .form__button:hover:before,
 .form__button:hover:after {
   left: 100%;
->>>>>>> c65c1612cf0d30e8cffdb3f4c602cedb8bb43a24
 }
 
 .form__button:hover {

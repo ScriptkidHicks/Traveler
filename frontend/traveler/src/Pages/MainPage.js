@@ -58,27 +58,6 @@ function MainPage() {
 
   return (
     <div className={classes.mainBody}>
-<<<<<<< HEAD
-      <InputWrapper>
-        <InputLabel>Place of Origin</InputLabel>
-        <AutocompleteComponent placeChanger={setOrigin} />
-        <AutocompleteComponent placeChanger={setPlaceOne} />
-        <AutocompleteComponent placeChanger={setPlaceTwo} />
-        <AutocompleteComponent placeChanger={setPlaceThree} />
-        <AutocompleteComponent placeChanger={setPlaceFour} />
-        <AutocompleteComponent placeChanger={setPlaceFive} />
-        <AutocompleteComponent placeChanger={setPlaceSix} />
-        <AutocompleteComponent placeChanger={setPlaceSeven} />
-        <AutocompleteComponent placeChanger={setPlaceEight} />
-        <AutocompleteComponent placeChanger={setPlaceNine} />
-        <AutocompleteComponent placeChanger={setPlaceTen} />
-        <button onClick={postToBackend}>Click Me</button>
-      </InputWrapper>
-
-      <img alt="europe postcard things" src={europecollage} className={classes.europecollage} />
-      <img alt="Post card for address input" src={PostCard} className={classes.PostCard} />
-
-=======
       <div className={classes.container}>
         <div className={classes.formWrapper}>
           <form className={classes.form}>
@@ -131,9 +110,12 @@ function MainPage() {
           <button className={classes.form__button} onClick={postToBackend}>
             Submit Locations
           </button>
+
+          <img alt="europe postcard things" src={europecollage} className={classes.europecollage} />
+          <img alt="Post card for address input" src={PostCard} className={classes.PostCard} />
+          
         </div>
       </div>
->>>>>>> c65c1612cf0d30e8cffdb3f4c602cedb8bb43a24
     </div>
   );
 }
