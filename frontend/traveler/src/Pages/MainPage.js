@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import AutocompleteComponent from "../Components/AutocompleteComponent";
 
 import europecollage from "../Images/europecollage.jpeg"
-import PostCard from "../Images/PostCard.png"
+document.body.style.background = "url(https://wallpaperaccess.com/full/2456957.jpg)";
 
 function MainPage() {
   // this method of doing this is a little uhhhhhhhhhhhhhh bad, but it works
@@ -111,9 +111,7 @@ function MainPage() {
             Submit Locations
           </button>
 
-          <img alt="europe postcard things" src={europecollage} className={classes.europecollage} />
-          <img alt="Post card for address input" src={PostCard} className={classes.PostCard} />
-          
+
         </div>
       </div>
     </div>

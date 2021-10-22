@@ -17,6 +17,7 @@
   z-index: 0;
 }
 
+
 .container {
   display: flex;
   height: 750px;
@@ -109,28 +110,6 @@
 }
 
 
-.PostCard {
-  z-index: 0;
-  position: absolute;
-  left: 20vw;
-  top: 70vh;
-  /* width: 800px; */
-  object-fit: contain;
-  opacity: 0;
-  transition: width 2s;
-
-  /* padding: 0;
-  display: block;
-  margin: 0 auto;
-  max-height: 100%;
-  max-width: 100%; */
-}
-
-.PostCard{
-  opacity: 1;
-}
-
-
 .europecollage {
   z-index: 0;
   position: absolute;
@@ -141,10 +120,10 @@
   padding: 0;
   display: block;
   margin: 0 auto;
-  /* max-height: 100%; */
+  max-height: 100%;
   max-width: 100%;
 }
 
 .europecollage {
-  opacity: 0.8;
+  opacity:1;
 }
