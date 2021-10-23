@@ -1,0 +1,129 @@
+.mainBody {
+  --color-primary: #5297ac;
+  --color-primary-dark: #007f69;
+  --color-secondary: #252c6a;
+  --color-error: #cc3333;
+  --color-success: #4bb544;
+  --border-radius: 10px;
+
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  font-size: 18px;
+  background: var(--color-primary);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  z-index: 0;
+}
+
+
+.container {
+  display: flex;
+  height: 750px;
+  width: 650px;
+  margin-left: 10rem;
+  padding: 2rem;
+  box-shadow: 10px 10px 7px rgba(0, 0, 0, 0.2);
+  border-radius: var(--border-radius);
+  background: white;
+}
+
+.formTitle {
+  color: white;
+  background: #6bb66b;
+  box-shadow: -5px 5px 12px rgba(71, 130, 148, 0.733);
+  border-radius: 13px;
+  padding-left: 3rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-left: 3rem;
+  margin-top: 0;
+  height: 40px;
+  margin-bottom: 2rem;
+  text-align: left;
+  justify-self: left;
+  align-self: top;
+}
+
+.formWrapper {
+  height: 700px;
+  width: 400px;
+  display: flex;
+  align-items: bottom;
+  justify-content: left;
+}
+
+.form {
+  width: 400px;
+}
+
+.form__button {
+  width: 200px;
+  padding: 1rem 2rem;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 28rem;
+  margin-top: 43rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #ffffff;
+  border: none;
+  border-radius: var(--border-radius);
+  outline: none;
+  cursor: pointer;
+  background: #6bb66b;
+  z-index: 99;
+  position: absolute;
+  overflow: hidden;
+}
+
+.form__button:before,
+.form__button:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 150%;
+  height: 100%;
+  background-color: #fff;
+  opacity: 0.2;
+  transform: rotate(45deg);
+  transition: all ease 1.5s;
+}
+
+.form__button::after {
+  transition-delay: 0.25s;
+}
+
+.form__button:hover:before,
+.form__button:hover:after {
+  left: 100%;
+}
+
+.form__button:hover {
+  background: var(--color-primary-dark);
+}
+
+.form__button:active {
+  transform: scale(0.98);
+}
+
+
+.europecollage {
+  z-index: 0;
+  position: absolute;
+  object-fit: contain;
+  opacity: 0;
+  transition: width 2s;
+
+  padding: 0;
+  display: block;
+  margin: 0 auto;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.europecollage {
+  opacity:1;
+}
