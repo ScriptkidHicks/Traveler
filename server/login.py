@@ -27,9 +27,21 @@ VALID_USERS = [
 ]
 
 ###
+#   Helper functions
+###
+
+
+
+###
 #   Route endpoints
 ###
-@login_page.route('/login', methods=["POST"])
+@login_page.route('/create_account', methods=["POST"])
+def create_account():
+    request_data = json.loads(flask.request.data)
+
+    return flask.Response({'message': 'success'}, status=201, mimetype='application/json')
+
+@login_page.route('/login', methods=["GET"])
 def login():
     # Get the data from the request
     request_data = flask.request.data
@@ -55,7 +67,7 @@ def login():
 
     jwt_token = jwt.encode(payload, JWT_SECRET, JWT_ALGORITHM)
 
-    return  {'token': jwt_token}, 200
+    return  {'token': jwt_token}, 201
 
 @login_page.route('/check_token')
 def validate_token():

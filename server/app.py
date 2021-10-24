@@ -118,4 +118,4 @@ def get_order():
     ## Call the algorithm with the adjacency matrix and get the optimal route
 
     # Until algorithm is added, just return back in order
-    return {"result": addresses}
+    return {"result": addresses}, 201
