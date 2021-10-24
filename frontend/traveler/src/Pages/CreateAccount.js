@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import classes from "../CSS/CreateAccount.module.css";
+import { useHistory } from "react-router";
 
 function CreateAccount() {
   const [userName, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
   const [email, setEmail] = useState(null);
+
+  const history = useHistory();
 
   function usernameChanger(event) {
     setUsername(event.target.value);
@@ -23,7 +26,7 @@ function CreateAccount() {
     const accountInfo = {
       method: "POST",
       headers: {
-        contentType: "application/JSON",
+        "Content-Type": "application/JSON",
         Contents: "accountInfo",
       },
       body: JSON.stringify({
@@ -32,6 +35,18 @@ function CreateAccount() {
         newPassword: password,
       }),
     };
+
+    fetch("/create_account", accountInfo)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status === 201) {
+          history.push("/MainPage");
+        } else {
+          alert(
+            "Unsuccessful account creation. An account with that name ssems to exist already."
+          );
+        }
+      });
   }
   return (
     <div className={classes.body}>

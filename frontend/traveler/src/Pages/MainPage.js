@@ -51,7 +51,7 @@ function MainPage() {
     };
 
     fetch("/get_order", requestOptions)
-      .then((response) => response.json())
+      .then((response) => console.log(response.json()))
       .then((data) => console.log(data))
       .finally(history.push("/Results"));
     // .then((data) => this.setState({ postId: data.id }));
