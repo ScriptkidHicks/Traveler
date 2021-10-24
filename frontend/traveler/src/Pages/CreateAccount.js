@@ -22,7 +22,8 @@ function CreateAccount() {
     setEmail(event.target.value);
   }
 
-  function PostAccount() {
+  function PostAccount(event) {
+    event.preventDefault();
     const accountInfo = {
       method: "POST",
       headers: {
@@ -36,17 +37,13 @@ function CreateAccount() {
       }),
     };
 
-    fetch("/create_account", accountInfo)
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.status === 201) {
-          history.push("/MainPage");
-        } else {
-          alert(
-            "Unsuccessful account creation. An account with that name seems to exist already."
-          );
-        }
-      });
+    fetch("/create_account", accountInfo).then((response) => {
+      if (response.status === 201) {
+        history.push("/MainPage");
+      } else {
+        alert("Failed to create user account!");
+      }
+    });
   }
   return (
     <div className={classes.body}>
@@ -59,7 +56,7 @@ function CreateAccount() {
               onChange={usernameChanger}
               type="username"
               className={classes.form__input}
-              autofocus
+              autoFocus
               placeholder="Username"
             ></input>
           </div>
@@ -68,7 +65,6 @@ function CreateAccount() {
               onChange={emailChanger}
               type="email"
               className={classes.form__input}
-              autofocus
               placeholder="Email Address"
             />
           </div>
@@ -77,15 +73,10 @@ function CreateAccount() {
               onChange={passwordChanger}
               type="password"
               className={classes.form__input}
-              autofocus
               placeholder="Password"
             />
           </div>
-          <button
-            className={classes.form__button}
-            type="submit"
-            onClick={PostAccount}
-          >
+          <button className={classes.form__button} onClick={PostAccount}>
             Continue
           </button>
           <br />
