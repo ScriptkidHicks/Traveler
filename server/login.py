@@ -41,7 +41,7 @@ def create_account():
 
     return flask.Response({'message': 'success'}, status=201, mimetype='application/json')
 
-@login_page.route('/login', methods=["GET"])
+@login_page.route('/login', methods=["POST"])
 def login():
     # Get the data from the request
     request_data = flask.request.data
