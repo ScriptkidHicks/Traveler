@@ -43,7 +43,7 @@ function CreateAccount() {
           history.push("/MainPage");
         } else {
           alert(
-            "Unsuccessful account creation. An account with that name ssems to exist already."
+            "Unsuccessful account creation. An account with that name seems to exist already."
           );
         }
       });
@@ -81,7 +81,11 @@ function CreateAccount() {
               placeholder="Password"
             />
           </div>
-          <button className={classes.form__button} type="submit">
+          <button
+            className={classes.form__button}
+            type="submit"
+            onClick={PostAccount}
+          >
             Continue
           </button>
           <br />
