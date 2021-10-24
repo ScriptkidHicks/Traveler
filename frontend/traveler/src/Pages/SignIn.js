@@ -45,16 +45,15 @@ function SignIn() {
               onChange={usernameChanger}
               type="username"
               className={classes.form__input}
-              autofocus
+              autoFocus
               placeholder="Username"
             />
           </div>
-          <div class="form__input-group">
+          <div className={classes.form__inputGroup}>
             <input
               onChange={passwordChanger}
               type="password"
               className={classes.form__input}
-              autofocus
               placeholder="Password"
             />
           </div>
