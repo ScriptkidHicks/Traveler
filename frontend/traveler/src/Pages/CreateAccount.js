@@ -31,9 +31,9 @@ function CreateAccount() {
         Contents: "accountInfo",
       },
       body: JSON.stringify({
-        newUsername: userName,
-        newEmail: email,
-        newPassword: password,
+        username: userName,
+        email: email,
+        password: password,
       }),
     };
 

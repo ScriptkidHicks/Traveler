@@ -39,6 +39,12 @@ VALID_USERS = [
 def create_account():
     request_data = json.loads(flask.request.data)
 
+    for USER in VALID_USERS:
+        if (request_data['username'] == USER['username']):
+            return flask.Response({'message': 'user exists already'}, status=409, mimetype='application/json')
+
+    VALID_USERS.append({"id": str(len(VALID_USERS)), "username": request_data['username'], "password": request_data['password']})
+
     return flask.Response({'message': 'success'}, status=201, mimetype='application/json')
 
 @login_page.route('/login', methods=["POST"])
