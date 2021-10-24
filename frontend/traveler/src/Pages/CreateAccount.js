@@ -40,8 +40,10 @@ function CreateAccount() {
     fetch("/create_account", accountInfo).then((response) => {
       if (response.status === 201) {
         history.push("/MainPage");
+      } else if (response.status === 409) {
+        alert("That user already exists!");
       } else {
-        alert("Failed to create user account!");
+        alert("Failed to create profile!");
       }
     });
   }

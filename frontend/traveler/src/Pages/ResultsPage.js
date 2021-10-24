@@ -1,20 +1,41 @@
 import styled from "styled-components";
 import MainMaps from "../Components/MyDirectionsRenderer";
+import { useState, useEffect } from "react";
 
 function ResultsPage() {
-  return (
-    <PageWrapper>
-      <MapContainer>
-        <MainMaps
-          origin={"eugene, or"}
-          waypoints={[{ location: "bend, or", stopover: true }]}
-        ></MainMaps>
-      </MapContainer>
-      <WrittenResults>
-        <ResultsTitle>Route Results</ResultsTitle>
-      </WrittenResults>
-    </PageWrapper>
-  );
+  const [loading, setLoading] = useState(true);
+
+  function loadHandler(e) {
+    e.preventDefault();
+    setLoading(!loading);
+  }
+
+  useEffect(() => {
+    fetch("");
+  }, []);
+
+  if (loading) {
+    return (
+      <PageWrapper>
+        <h1>Loading...</h1>
+        <button onClick={loadHandler}></button>
+      </PageWrapper>
+    );
+  } else {
+    return (
+      <PageWrapper>
+        <MapContainer>
+          <MainMaps
+            origin={"eugene, or"}
+            waypoints={[{ location: "bend, or", stopover: true }]}
+          ></MainMaps>
+        </MapContainer>
+        <WrittenResults>
+          <ResultsTitle>Route Results</ResultsTitle>
+        </WrittenResults>
+      </PageWrapper>
+    );
+  }
 }
 
 export default ResultsPage;

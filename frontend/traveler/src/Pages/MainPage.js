@@ -50,10 +50,14 @@ function MainPage() {
       body: JSON.stringify({ title: "Set of locations", locations: places }),
     };
 
-    fetch("/get_order", requestOptions)
-      .then((response) => console.log(response.json()))
-      .then((data) => console.log(data))
-      .finally(history.push("/Results"));
+    fetch("/get_order", requestOptions).then((response) => {
+      if (response.status === 201) {
+        history.push("/results");
+      } else {
+        console.log(response);
+        alert("There was an error handling those addresses!");
+      }
+    });
     // .then((data) => this.setState({ postId: data.id }));
   }
 
