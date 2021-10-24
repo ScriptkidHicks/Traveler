@@ -5,8 +5,9 @@ import classes from "../CSS/MainPage.module.css";
 import React, { useState } from "react";
 import AutocompleteComponent from "../Components/AutocompleteComponent";
 
-import europecollage from "../Images/europecollage.jpeg"
-document.body.style.background = "url(https://wallpaperaccess.com/full/2456957.jpg)";
+import europecollage from "../Images/europecollage.jpeg";
+document.body.style.background =
+  "url(https://wallpaperaccess.com/full/2456957.jpg)";
 
 function MainPage() {
   // this method of doing this is a little uhhhhhhhhhhhhhh bad, but it works
@@ -110,8 +111,6 @@ function MainPage() {
           <button className={classes.form__button} onClick={postToBackend}>
             Submit Locations
           </button>
-
-
         </div>
       </div>
     </div>

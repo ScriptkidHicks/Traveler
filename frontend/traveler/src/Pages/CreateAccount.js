@@ -1,7 +1,38 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import classes from "../CSS/CreateAccount.module.css";
 
 function CreateAccount() {
+  const [userName, setUsername] = useState(null);
+  const [password, setPassword] = useState(null);
+  const [email, setEmail] = useState(null);
+
+  function usernameChanger(event) {
+    setUsername(event.target.value);
+  }
+
+  function passwordChanger(event) {
+    setPassword(event.target.value);
+  }
+
+  function emailChanger(event) {
+    setEmail(event.target.value);
+  }
+
+  function PostAccount() {
+    const accountInfo = {
+      method: "POST",
+      headers: {
+        contentType: "application/JSON",
+        Contents: "accountInfo",
+      },
+      body: JSON.stringify({
+        newUsername: userName,
+        newEmail: email,
+        newPassword: password,
+      }),
+    };
+  }
   return (
     <div className={classes.body}>
       <div className={classes.container}>
@@ -10,6 +41,7 @@ function CreateAccount() {
 
           <div className={classes.form__inputGroup}>
             <input
+              onChange={usernameChanger}
               type="username"
               className={classes.form__input}
               autofocus
@@ -18,7 +50,8 @@ function CreateAccount() {
           </div>
           <div className={classes.form__inputGroup}>
             <input
-              type="username"
+              onChange={emailChanger}
+              type="email"
               className={classes.form__input}
               autofocus
               placeholder="Email Address"
@@ -26,18 +59,11 @@ function CreateAccount() {
           </div>
           <div className={classes.form__inputGroup}>
             <input
+              onChange={passwordChanger}
               type="password"
               className={classes.form__input}
               autofocus
               placeholder="Password"
-            />
-          </div>
-          <div className={classes.form__inputGroup}>
-            <input
-              type="password"
-              className={classes.form__input}
-              autofocus
-              placeholder="Confirm Password"
             />
           </div>
           <button className={classes.form__button} type="submit">
