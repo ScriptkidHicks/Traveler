@@ -67,7 +67,7 @@ def login():
 
     jwt_token = jwt.encode(payload, JWT_SECRET, JWT_ALGORITHM)
 
-    return  {'token': jwt_token}, 201
+    return  flask.Response({'token': jwt_token}, status=200)
 
 @login_page.route('/check_token')
 def validate_token():
