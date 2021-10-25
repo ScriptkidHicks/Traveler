@@ -13,34 +13,6 @@ app.register_blueprint(login_page)
 ###
 base_url = "https://maps.googleapis.com/maps/api/distancematrix/json?"
 
-# def json_response(body='', **kwargs):
-#     kwargs['body'] = json.dumps(body or kwargs['body']).encode('utf-8')
-#     kwargs['content_type'] = 'text/json'
-#     return web.Response(**kwargs)
-
-# @app.route('/login', methods=['POST'])
-# def login():
-#     # Get the data
-#     request_data = (flask.request.data)
-
-#     # Convert the data to dictionary 
-#     user = json.loads(request_data.decode('utf-8').replace("'", '"'))
-
-#     if user not in VALID_USERS:
-#         return {'message': 'Wrong credentials'}, 400
-
-#     payload = {
-#         'user_id': user['username'],
-#         'exp': datetime.utcnow() + timedelta(seconds=JWT_EXP_DELTA_SECONDS)
-#     }
-
-#     jwt_token = jwt.encode(payload, JWT_SECRET, JWT_ALGORITHM)
-
-#     return {'token': jwt_token}, 200
-
-@app.route("/test")
-def test():
-    return "hello world!"
 
 """
 to_url_string
@@ -81,6 +53,11 @@ def pretty_print(mat):
 
 """ 
 POST request function
+    Recieves a list of location objects 
+    Parses the locations and generates a adjacency matrix from their relative distances
+        (distances retrieved from Google Distance API)
+    Sends the adj. matrix to the algorithm to get the ordering for travel
+    Returns the proper ordering
 """
 @app.route("/get_order", methods=["POST"])
 def get_order():
@@ -95,6 +72,9 @@ def get_order():
     for location in locations:
         addresses.append(location['formatted_address'])
 
+
+    # Save the first location
+    origin = addresses[0]
 
     ## Prepare the Distance Matrix API call
     payload = headers = {}
@@ -117,5 +97,8 @@ def get_order():
 
     ## Call the algorithm with the adjacency matrix and get the optimal route
 
-    # Until algorithm is added, just return back in order
-    return {"result": addresses}, 201
+    # Get the waypoints from the rest of the points
+    waypoints = []
+    for addr in addresses[1:]:
+        waypoints.append('{"location":"' + addr + '","stopover":true}')
+    return {"origin": origin, "waypoints": tuple(waypoints)}, 201
