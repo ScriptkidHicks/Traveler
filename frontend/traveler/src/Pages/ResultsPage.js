@@ -7,11 +7,6 @@ function ResultsPage(props) {
   const [origin, setOrigin] = useState(null);
   const [waypoints, setWaypoints] = useState(null);
 
-  function loadHandler(e) {
-    e.preventDefault();
-    setLoading(!loading);
-  }
-
   useEffect(() => {
     const resultsFetch = {
       method: "POST",
@@ -34,18 +29,19 @@ function ResultsPage(props) {
     // });
 
     fetch("/get_order", resultsFetch)
-      .then(response => {
+      .then((response) => {
         if (response.status !== 201) throw new Error(response.status);
         else return response.json(); // Convert the response to json to get the data
       })
-      .then(data => {
+      .then((data) => {
         // Convert the strings into objects so the map can parse them
-        let waypoints = data.waypoints.map(loc => JSON.parse(loc));
+        let waypoints = data.waypoints.map((loc) => JSON.parse(loc));
         setWaypoints(waypoints);
         setOrigin(data.origin);
+        setLoading(false);
       })
       .catch((error) => {
-        console.log('Error: ' + error);
+        console.log("Error: " + error);
       });
   }, []);
 
@@ -53,7 +49,6 @@ function ResultsPage(props) {
     return (
       <PageWrapper>
         <h1>Loading...</h1>
-        <button onClick={loadHandler}></button>
       </PageWrapper>
     );
   } else {
