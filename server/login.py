@@ -64,7 +64,7 @@ def login():
             current_user = USER
     
     if current_user is None:
-        return {'message': 'Wrong credentials!'}, 400
+        return flask.Response({'message': 'Wrong credentials!'}, status=400)
     
     payload = {
         'user_id': current_user['id'],

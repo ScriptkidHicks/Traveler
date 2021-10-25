@@ -2,8 +2,10 @@ import styled from "styled-components";
 import MainMaps from "../Components/MyDirectionsRenderer";
 import { useState, useEffect } from "react";
 
-function ResultsPage() {
+function ResultsPage(props) {
   const [loading, setLoading] = useState(true);
+  const [origin, setOrigin] = useState(null);
+  const [waypoints, setWaypoints] = useState(null);
 
   function loadHandler(e) {
     e.preventDefault();
@@ -11,7 +13,23 @@ function ResultsPage() {
   }
 
   useEffect(() => {
-    fetch("");
+    const resultsFetch = {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Contents: "request" },
+      body: JSON.stringify({
+        locations: props.places,
+      }),
+    };
+
+    fetch("/get_order", resultsFetch).then((response) => {
+      if (response.status === 201) {
+        console.log("these are the waypoints ", response.waypoints);
+        setWaypoints(response.waypoints);
+        setOrigin(response.origin);
+      } else {
+        alert("I think you touched the endpoint wrong!");
+      }
+    });
   }, []);
 
   if (loading) {
@@ -25,10 +43,7 @@ function ResultsPage() {
     return (
       <PageWrapper>
         <MapContainer>
-          <MainMaps
-            origin={"eugene, or"}
-            waypoints={[{ location: "bend, or", stopover: true }]}
-          ></MainMaps>
+          <MainMaps origin={origin} waypoints={waypoints}></MainMaps>
         </MapContainer>
         <WrittenResults>
           <ResultsTitle>Route Results</ResultsTitle>
@@ -65,7 +80,7 @@ const WrittenResults = styled.div`
   width: 30vw;
   height: 79vh;
   left: 19vw;
-  top: 25.5vw;
+  top: 50vh;
   border-radius: 20px;
   border: solid 4px black;
   box-shadow: 10px 10px 30px black;

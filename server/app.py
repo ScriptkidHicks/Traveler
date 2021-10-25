@@ -119,3 +119,8 @@ def get_order():
 
     # Until algorithm is added, just return back in order
     return {"result": addresses}, 201
+
+@app.route("/find_results", methods=["POST"])
+def get_results():
+    return flask.Response({"waypoints": "[{location: 'bend, or', stopover: true}, {location: 'salem, or', stopover: true}]", "origin": "eugene, or"}, status=201)
+

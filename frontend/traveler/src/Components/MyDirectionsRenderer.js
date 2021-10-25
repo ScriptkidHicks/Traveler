@@ -20,8 +20,6 @@ const center = {
 };
 
 const MainMaps = (props) => {
-  const [origin, setOrigin] = useState(props.origin);
-  const [waypoints, setWaypoints] = useState(props.waypoints);
   const [response, setResponse] = React.useState(null);
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: GOOGLEMAPS_API_KEY,
@@ -30,7 +28,7 @@ const MainMaps = (props) => {
 
   const directionsCallback = (response) => {
     console.log("response ", response);
-    console.log("waypoints: ", waypoints);
+    console.log("waypoints: ", props.waypoints);
 
     if (response !== null) {
       if (response.status === "OK") {
@@ -49,9 +47,9 @@ const MainMaps = (props) => {
   if (!isLoaded) return "loading maps";
 
   const DirectionsServiceOptionTwo = {
-    destination: origin,
-    origin: origin,
-    waypoints: waypoints,
+    destination: props.origin,
+    origin: props.origin,
+    waypoints: props.waypoints,
     travelMode: "DRIVING",
   };
 
