@@ -29,6 +29,13 @@ VALID_USERS = [
 ###
 #   Helper functions
 ###
+def generate_token(user):
+    payload = {
+        'user_id': user['id'],
+        'exp': datetime.utcnow() + timedelta(seconds=JWT_EXP_DELTA_SECONDS)
+    }
+
+    return jwt.encode(payload, JWT_SECRET, JWT_ALGORITHM)
 
 
 
@@ -41,11 +48,11 @@ def create_account():
 
     for USER in VALID_USERS:
         if (request_data['username'] == USER['username']):
-            return flask.Response({'message': 'user exists already'}, status=409, mimetype='application/json')
+            return {'message': 'user exists already'}, 409
 
     VALID_USERS.append({"id": str(len(VALID_USERS)), "username": request_data['username'], "password": request_data['password']})
 
-    return flask.Response({'message': 'success'}, status=201, mimetype='application/json')
+    return {'message': 'success'}, 201
 
 @login_page.route('/login', methods=["POST"])
 def login():
@@ -66,14 +73,8 @@ def login():
     if current_user is None:
         return flask.Response({'message': 'Wrong credentials!'}, status=400)
     
-    payload = {
-        'user_id': current_user['id'],
-        'exp': datetime.utcnow() + timedelta(seconds=JWT_EXP_DELTA_SECONDS)
-    }
-
-    jwt_token = jwt.encode(payload, JWT_SECRET, JWT_ALGORITHM)
-
-    return  flask.Response({'token': jwt_token}, status=200)
+    token = generate_token(current_user)
+    return  {'token': token}, 200
 
 @login_page.route('/check_token')
 def validate_token():

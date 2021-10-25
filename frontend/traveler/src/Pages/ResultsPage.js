@@ -21,15 +21,32 @@ function ResultsPage(props) {
       }),
     };
 
-    fetch("/get_order", resultsFetch).then((response) => {
-      if (response.status === 201) {
-        console.log("these are the waypoints ", response.waypoints);
-        setWaypoints(response.waypoints);
-        setOrigin(response.origin);
-      } else {
-        alert("I think you touched the endpoint wrong!");
-      }
-    });
+    // fetch("/get_order", resultsFetch).then((response) => {
+    //   if (response.status === 201) {
+    //     let data = response.json();
+    //     console.log(data);
+    //     console.log("these are the waypoints ", response.waypoints);
+    //     setWaypoints(response.waypoints);
+    //     setOrigin(response.origin);
+    //   } else {
+    //     alert("I think you touched the endpoint wrong!");
+    //   }
+    // });
+
+    fetch("/get_order", resultsFetch)
+      .then(response => {
+        if (response.status !== 201) throw new Error(response.status);
+        else return response.json(); // Convert the response to json to get the data
+      })
+      .then(data => {
+        // Convert the strings into objects so the map can parse them
+        let waypoints = data.waypoints.map(loc => JSON.parse(loc));
+        setWaypoints(waypoints);
+        setOrigin(data.origin);
+      })
+      .catch((error) => {
+        console.log('Error: ' + error);
+      });
   }, []);
 
   if (loading) {
