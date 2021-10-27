@@ -1,3 +1,13 @@
+"""
+Filename: login.py
+
+Purpose:
+Contains the login endpoints and functions for the application.
+
+Authors: Tammas Hicks, Jordan Smith
+Group: //Todo
+Last modified: 10/27/21
+"""
 import flask
 import jwt
 import json

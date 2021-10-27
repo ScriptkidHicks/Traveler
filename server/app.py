@@ -1,3 +1,15 @@
+"""
+Filename: app.py
+
+Purpose:
+The main application file for the Flask server.
+Contains an endpoint '/get_order' that takes a list of locations, parses them through the google distance matrix api, 
+    creates an adjacency matrix from those distances, parses the matrix through the algorithm, and returns the result.
+
+Authors: Jordan Smith
+Group: //Todo
+Last modified: 10/27/21
+"""
 import flask
 import json
 import urllib

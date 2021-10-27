@@ -8,7 +8,7 @@ We will have a fork called 'dev'. When you clone the repo use git branch to make
 
 # Contributing Members of Team //TODO:
 Tammas Hicks: UX/UI
-Thomas Joyce: Algorith Development
+Thomas Joyce: Algorithm Development
 Evan Pariser: QA / Data Handling
 Jordan Smith: Backend Development
 Aliya Ware: Team Leader
