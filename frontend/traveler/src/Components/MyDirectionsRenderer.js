@@ -5,7 +5,6 @@ import {
   DirectionsService,
   DirectionsRenderer,
 } from "@react-google-maps/api";
-import GOOGLEMAPS_API_KEY from "../key";
 import styled from "styled-components";
 
 const libraries = ["places", "directions"];
@@ -22,7 +21,7 @@ const center = {
 const MainMaps = (props) => {
   const [response, setResponse] = React.useState(null);
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: GOOGLEMAPS_API_KEY,
+    googleMapsApiKey: process.env.REACT_APP_GOOGLEMAPS_API_KEY,
     libraries,
   });
 

@@ -28,3 +28,4 @@ key.js
 #all environmental files
 *.env
 *.gitignore
+.env

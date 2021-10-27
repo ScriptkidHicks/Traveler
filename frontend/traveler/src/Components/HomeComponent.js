@@ -1,4 +1,3 @@
-import GOOGLEMAPS_API_KEY from "../key";
 import React, { Component } from "react";
 import { render } from "react-dom";
 import { GoogleComponent } from "react-google-location";
@@ -15,7 +14,7 @@ class HomeComponent extends Component {
     return (
       <div>
         <GoogleComponent
-          apiKey={GOOGLEMAPS_API_KEY}
+          apiKey={process.env.REACT_APP_GOOGLEMAPS_API_KEY}
           language={"en"}
           country={"country:in|country:us"}
           coordinates={true}
