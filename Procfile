@@ -1,0 +1,1 @@
+start: cd frontend/traveler; npm start; cd ../../server; source venv/bin/activate; flask run;
