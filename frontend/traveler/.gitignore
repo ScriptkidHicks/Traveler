@@ -24,3 +24,7 @@ yarn-error.log*
 
 #this is where I'm hiding the google maps key
 key.js
+
+#all environmental files
+*.env
+*.gitignore
