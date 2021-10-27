@@ -1,3 +1,11 @@
+'''
+code: This is the algorithm driving Traveler. Prim's Algorithm is implemented 
+      utilizing a min-heap structure on an adjacency list.   
+group: //TODO
+author(s): Thomas Joyce
+last modified: 26 Oct 2021
+'''
+
 from collections import defaultdict
 
 class Edge:
@@ -47,7 +55,6 @@ class EdgeMinHeap:
         self.heap[index_b].weight = temp_val
         self.heap[index_b].a = temp_a
         self.heap[index_b].b = temp_b
-
 
 class Graph:
     def __init__(self, v_count):
@@ -115,7 +122,7 @@ def solve(matrix):
                 g.add_edge(i, j, matrix[i][j])
     return g.mst_order()
 
-'''
+""" 
 if __name__ == "__main__":
     g = Graph(4)
     g.add_edge(0, 1, 6)
@@ -125,4 +132,4 @@ if __name__ == "__main__":
     g.add_edge(1, 3, 3)
     g.add_edge(2, 3, 4)
     print("MST order:", g.mst_order())
-'''
+"""
