@@ -25,7 +25,7 @@ function SignIn() {
       body: JSON.stringify({ username: username, password: password }),
     };
 
-    fetch("/login", userInfo).then((response) => {
+    fetch("/api/login", userInfo).then((response) => {
       if (response.status === 200) {
         history.push("/MainPage");
       } else {

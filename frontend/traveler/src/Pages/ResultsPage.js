@@ -28,7 +28,7 @@ function ResultsPage(props) {
     //   }
     // });
 
-    fetch("/get_order", resultsFetch)
+    fetch("/api/get_order", resultsFetch)
       .then((response) => {
         if (response.status !== 201) throw new Error(response.status);
         else return response.json(); // Convert the response to json to get the data
