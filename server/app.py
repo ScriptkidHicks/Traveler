@@ -4,7 +4,7 @@ import urllib
 import requests
 from login import login_page
 from key import API_KEY
-from waitress import serve
+
 
 app = flask.Flask(__name__)
 app.register_blueprint(login_page)
@@ -103,3 +103,8 @@ def get_order():
     for addr in addresses[1:]:
         waypoints.append('{"location":"' + addr + '","stopover":true}')
     return {"origin": origin, "waypoints": tuple(waypoints)}, 201
+
+
+if __name__ == '__main__':
+    from waitress import serve
+    serve(app, host="0.0.0.0", port="5000")
