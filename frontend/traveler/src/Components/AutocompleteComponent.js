@@ -9,7 +9,12 @@ const AutocompleteComponent = (props) => (
       className={classes.form__input}
       apiKey={process.env.REACT_APP_GOOGLEMAPS_API_KEY}
       onPlaceSelected={(place) => {
-        props.placeChanger([place]);
+        props.placeChanger(place);
+        if (props.subDisplay) {
+          console.log(props.subDisplay);
+          props.subDisplay("inline");
+          console.log("yes");
+        }
       }}
       placeholder={props.placeholder}
     />
