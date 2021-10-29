@@ -7,7 +7,7 @@ const places = ["address", "city"];
 const AutocompleteComponent = (props) => (
   <div>
     <Autocomplete
-      options={{ types: "address" }}
+      options={{ types: ["address"] }}
       className={classes.form__input}
       apiKey={process.env.REACT_APP_GOOGLEMAPS_API_KEY}
       onPlaceSelected={(place) => {
