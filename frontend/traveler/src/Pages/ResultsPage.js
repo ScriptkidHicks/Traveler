@@ -2,6 +2,8 @@ import styled from "styled-components";
 import MainMaps from "../Components/MyDirectionsRenderer";
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router";
+import classes from "../CSS/Results.module.css";
+import { Link } from "react-router-dom";
 
 function ResultsPage(props) {
   const [loading, setLoading] = useState(true);
@@ -74,6 +76,9 @@ function ResultsPage(props) {
         <MapContainer>
           <MainMaps origin={origin} waypoints={waypoints}></MainMaps>
         </MapContainer>
+        <Link to="/MainPage" className={classes.form__button}>
+          New Route
+        </Link>
       </PageWrapper>
     );
   }
@@ -100,7 +105,7 @@ const PageWrapper = styled.div`
 const MapContainer = styled.div`
   position: absolute;
   transform: translate(-50%, -50%);
-  top: 50vh;
+  top: 45vh;
   left: 50vw;
   display: flex;
   justify-content: center;
