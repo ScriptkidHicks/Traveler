@@ -1,11 +1,13 @@
 import styled from "styled-components";
 import MainMaps from "../Components/MyDirectionsRenderer";
 import { useState, useEffect } from "react";
+import { useHistory } from "react-router";
 
 function ResultsPage(props) {
   const [loading, setLoading] = useState(true);
   const [origin, setOrigin] = useState(null);
   const [waypoints, setWaypoints] = useState(null);
+  const history = useHistory();
 
   useEffect(() => {
     const resultsFetch = {
@@ -46,9 +48,24 @@ function ResultsPage(props) {
   }, []);
 
   if (loading) {
+    console.log(props.places[0]);
+    if (props.places[0] === undefined || props.places[0] === null) {
+      alert("It looks like you didn't enter an origin point!");
+      history.push("/MainPage");
+    }
     return (
       <PageWrapper>
-        <h1>Loading...</h1>
+        <h1
+          style={{
+            transform: "translate(-50%, -50%)",
+            position: "absolute",
+            top: "50vh",
+            left: "50vw",
+            color: "white",
+          }}
+        >
+          Loading...
+        </h1>
       </PageWrapper>
     );
   } else {
@@ -66,6 +83,14 @@ function ResultsPage(props) {
 }
 
 export default ResultsPage;
+
+const LoadWrapper = styled.div`
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-content: center;
+  background-color: #5297ac;
+`;
 
 const PageWrapper = styled.div`
   width: 100vw;

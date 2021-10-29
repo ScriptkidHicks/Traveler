@@ -1,5 +1,6 @@
 .form__input {
   box-sizing: border-box;
+  outline: none;
   width: 100%;
   border: solid #ccc 2px;
   border-radius: var(--border-radius);
