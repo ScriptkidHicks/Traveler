@@ -33,26 +33,9 @@ function ResultsPage(props) {
       .catch((error) => {
         console.log("Error: " + error);
       });
-  }, []);
+  }, [props.places]);
 
   if (loading) {
-    if (props.places[0] === null) {
-      console.log("ooooops");
-      alert("It looks like you didn't provide any origin!");
-      history.push("/Mainpage");
-    } else {
-      let locCount = 0;
-      for (let x = 0; x < 10; x++) {
-        if (props.places[x] != undefined) {
-          locCount++;
-        }
-      }
-      if (locCount < 2) {
-        alert("You seem to have only provided one location!");
-        history.push("/MainPage");
-      }
-    }
-
     return (
       <LoadWrapper>
         <h1
