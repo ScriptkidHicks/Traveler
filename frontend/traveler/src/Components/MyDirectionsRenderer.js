@@ -84,8 +84,8 @@ const MapContainer = styled.div`
   align-content: center;
   padding: 0;
   margin: 0;
-  height: 800px;
-  width: 55vw;
+  height: 80vh;
+  width: 80vw;
   border-radius: 30px;
   margin: auto;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 1);

@@ -74,9 +74,6 @@ function ResultsPage(props) {
         <MapContainer>
           <MainMaps origin={origin} waypoints={waypoints}></MainMaps>
         </MapContainer>
-        <WrittenResults>
-          <ResultsTitle>Route Results</ResultsTitle>
-        </WrittenResults>
       </PageWrapper>
     );
   }
@@ -104,23 +101,7 @@ const MapContainer = styled.div`
   position: absolute;
   transform: translate(-50%, -50%);
   top: 50vh;
-  left: 65vw;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-`;
-
-const WrittenResults = styled.div`
-  position: absolute;
-  background-color: white;
-  transform: translate(-50%, -50%);
-  width: 30vw;
-  height: 79vh;
-  left: 19vw;
-  top: 50vh;
-  border-radius: 20px;
-  border: solid 4px black;
-  box-shadow: 10px 10px 30px black;
+  left: 50vw;
   display: flex;
   justify-content: center;
   align-content: center;
