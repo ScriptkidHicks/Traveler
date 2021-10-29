@@ -86,14 +86,6 @@ function ResultsPage(props) {
 
 export default ResultsPage;
 
-const LoadWrapper = styled.div`
-  width: 100vw;
-  height: 100vh;
-  justify-content: center;
-  align-content: center;
-  background-color: #5297ac;
-`;
-
 const PageWrapper = styled.div`
   width: 100vw;
   height: 100vh;
