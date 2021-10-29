@@ -1,16 +1,19 @@
 .form__input {
-  display: block;
-  width: 100%;
-  padding: 0.75rem;
   box-sizing: border-box;
+  width: 100%;
+  border: solid #ccc 2px;
   border-radius: var(--border-radius);
-  border: 1px solid #dddddd;
-  outline: none;
-  background: #eeeeee;
-  margin-top: 1rem;
+  background: #ddd;
+  text-align: center;
+  transition: ease all 0.2s;
+  height: 4vh;
+  margin-top: 1.5vh;
+  padding-bottom: 0;
+  padding-top: 0;
 }
 
 .form__input:focus {
   border: 2px solid var(--color-primary);
   background: #eeeeee;
+  box-shadow: -5px 5px 12px rgba(71, 130, 148, 0.733);
 }
