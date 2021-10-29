@@ -1,9 +1,22 @@
+"""
+Filename: app.py
+
+Purpose:
+The main application file for the Flask server.
+Contains an endpoint '/get_order' that takes a list of locations, parses them through the google distance matrix api, 
+    creates an adjacency matrix from those distances, parses the matrix through the algorithm, and returns the result.
+
+Authors: Jordan Smith
+Group: //Todo
+Last modified: 10/29/21
+"""
 import flask
 import json
 import urllib
 import requests
 from login import login_page
 from key import API_KEY
+import Prims
 
 
 app = flask.Flask(__name__)
@@ -97,11 +110,16 @@ def get_order():
     # pretty_print(adjMatrix)
 
     ## Call the algorithm with the adjacency matrix and get the optimal route
+    algo_results = Prims.solve(adjMatrix)
+    
 
     # Get the waypoints from the rest of the points
+    # We don't need the first or last point from the algo_results, since they are just the origin
     waypoints = []
-    for addr in addresses[1:]:
-        waypoints.append('{"location":"' + addr + '","stopover":true}')
+    for res in algo_results[1:-1]:
+        waypoints.append('{"location":"' + addresses[res] + '","stopover":true}')
+    #print(waypoints)
+
     return {"origin": origin, "waypoints": tuple(waypoints)}, 201
 
 
