@@ -1,11 +1,14 @@
 import styled from "styled-components";
 import MainMaps from "../Components/MyDirectionsRenderer";
 import { useState, useEffect } from "react";
+import { useHistory } from "react-router";
 
 function ResultsPage(props) {
   const [loading, setLoading] = useState(true);
   const [origin, setOrigin] = useState(null);
   const [waypoints, setWaypoints] = useState(null);
+
+  const history = useHistory();
 
   useEffect(() => {
     const resultsFetch = {
@@ -15,19 +18,6 @@ function ResultsPage(props) {
         locations: props.places,
       }),
     };
-
-    // fetch("/get_order", resultsFetch).then((response) => {
-    //   if (response.status === 201) {
-    //     let data = response.json();
-    //     console.log(data);
-    //     console.log("these are the waypoints ", response.waypoints);
-    //     setWaypoints(response.waypoints);
-    //     setOrigin(response.origin);
-    //   } else {
-    //     alert("I think you touched the endpoint wrong!");
-    //   }
-    // });
-
     fetch("/api/get_order", resultsFetch)
       .then((response) => {
         if (response.status !== 201) throw new Error(response.status);
@@ -46,10 +36,36 @@ function ResultsPage(props) {
   }, []);
 
   if (loading) {
+    if (props.places[0] === null) {
+      console.log("ooooops");
+      alert("It looks like you didn't provide any origin!");
+      history.push("/Mainpage");
+    } else {
+      let locCount = 0;
+      for (let x = 0; x < 10; x++) {
+        if (props.places[x] != undefined) {
+          locCount++;
+        }
+      }
+      if (locCount < 2) {
+        alert("You seem to have only provided one location!");
+        history.push("/MainPage");
+      }
+    }
+
     return (
-      <PageWrapper>
-        <h1>Loading...</h1>
-      </PageWrapper>
+      <LoadWrapper>
+        <h1
+          style={{
+            transform: "translate(-50%, -50%)",
+            position: "absolute",
+            left: "50vw",
+            top: "50vh",
+          }}
+        >
+          Loading...
+        </h1>
+      </LoadWrapper>
     );
   } else {
     return (
@@ -66,6 +82,16 @@ function ResultsPage(props) {
 }
 
 export default ResultsPage;
+
+const LoadWrapper = styled.div`
+  justify-content: center;
+  align-content: center;
+
+  background-color: #5297ac;
+  height: 100vh;
+  margin-top: 0;
+  padding-top: 0;
+`;
 
 const PageWrapper = styled.div`
   width: 100vw;

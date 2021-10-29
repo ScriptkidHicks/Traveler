@@ -6,6 +6,7 @@
   background: #ddd;
   text-align: center;
   transition: ease all 0.2s;
+  outline: none;
   height: 4vh;
   margin-top: 1.5vh;
   padding-bottom: 0;
