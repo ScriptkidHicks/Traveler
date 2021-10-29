@@ -75,16 +75,18 @@ class Graph:
                     min_edge.weight = weight
                     min_edge.a = u
                     min_edge.b = v
-        print(self.graph)
+        #print(self.graph)
         self.min_heap.insert(min_edge)
         edge_count = 0
         cost = 0
         order = []
+        order.append(0)
         while edge_count < self.V-1:
             new_edge = self.min_heap.delete() # get a min edge(which is connected and unvisited)
             #print(f"w:{new_edge.weight}, a:{new_edge.a}, b:{new_edge.b}")
             cost += new_edge.weight # add its cost to overall cost
-            order.append([new_edge.a, new_edge.b])
+            #order.append([new_edge.a, new_edge.b])
+            order.append(new_edge.b)
             edge_count += 1 # increase up the edge_count
             for u in [new_edge.a, new_edge.b]: # Iterate over the both ends of new_edge
                 #if visited[u] == False or u == new_edge.a or u == new_edge.b:
@@ -97,6 +99,7 @@ class Graph:
             #for i in self.min_heap.heap: 
             #    print(i.weight, end=" ")
             #print()
+        order.append(0)
         print("cost of traversal: ", cost)
         return order
 
@@ -118,7 +121,7 @@ def solve(matrix):
     for i in range(len(matrix)):
         for j in range(len(matrix[i])):
             if j != i:
-                print("adding: ", i, j, matrix[i][j])
+                #print("adding: ", i, j, matrix[i][j])
                 g.add_edge(i, j, matrix[i][j])
     return g.mst_order()
 
