@@ -5,7 +5,7 @@ import classes from "../CSS/AutocompleteComponent.module.css";
 const AutocompleteComponent = (props) => (
   <div>
     <Autocomplete
-      options={{ types: ["address", "city"] }}
+      options={{ types: ["address"] }}
       className={classes.form__input}
       apiKey={process.env.REACT_APP_GOOGLEMAPS_API_KEY}
       onPlaceSelected={(place) => {
