@@ -11,6 +11,20 @@ function ResultsPage(props) {
   const [waypoints, setWaypoints] = useState(null);
   const history = useHistory();
 
+  function setEmpty() {
+    props.setOne(null);
+    props.setTwo(null);
+    props.setThree(null);
+    props.setFour(null);
+    props.setFive(null);
+    props.setSix(null);
+    props.setSeven(null);
+    props.setEight(null);
+    props.setNine(null);
+    props.setTen(null);
+    props.setOrg(null);
+  }
+
   useEffect(() => {
     const resultsFetch = {
       method: "POST",
@@ -76,7 +90,12 @@ function ResultsPage(props) {
         <MapContainer>
           <MainMaps origin={origin} waypoints={waypoints}></MainMaps>
         </MapContainer>
-        <Link className={classes.form__button} to="/MainPage">
+        <Link
+          onClick={setEmpty}
+          className={classes.form__button}
+          style={{ borderRadius: "6px" }}
+          to="/MainPage"
+        >
           New Route
         </Link>
       </PageWrapper>

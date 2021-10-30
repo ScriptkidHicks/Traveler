@@ -63,7 +63,19 @@ function App() {
           />
         </Route>
         <Route path="/Results">
-          <ResultsPage places={places} />
+          <ResultsPage
+            places={places}
+            setOrg={setOrigin}
+            setOne={setPlaceOne}
+            setTwo={setPlaceTwo}
+            setThree={setPlaceThree}
+            setFour={setPlaceFour}
+            setSix={setPlaceSix}
+            setSeven={setPlaceSeven}
+            setEight={setPlaceEight}
+            setNine={setPlaceNine}
+            setTen={setPlaceTen}
+          />
         </Route>
       </Switch>
     </div>
