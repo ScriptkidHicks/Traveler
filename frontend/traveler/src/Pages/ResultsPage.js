@@ -23,6 +23,7 @@ function ResultsPage(props) {
     props.setNine(null);
     props.setTen(null);
     props.setOrg(null);
+    history.push("/MainPage");
   }
 
   useEffect(() => {
