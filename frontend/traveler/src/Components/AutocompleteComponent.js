@@ -2,12 +2,10 @@ import React from "react";
 import Autocomplete from "react-google-autocomplete";
 import classes from "../CSS/AutocompleteComponent.module.css";
 
-const places = ["address", "city"];
-
 const AutocompleteComponent = (props) => (
   <div>
     <Autocomplete
-      options={{ types: ["address"] }}
+      options={{ types: ["address", "city"] }}
       className={classes.form__input}
       apiKey={process.env.REACT_APP_GOOGLEMAPS_API_KEY}
       onPlaceSelected={(place) => {

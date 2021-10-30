@@ -12,7 +12,6 @@ import PortlandMap from "../Images/portlandmap.png";
 import SLCMap from "../Images/saltlakecity.jpeg";
 import SeaMap from "../Images/seattle-map.png";
 import SprawlMap from "../Images/sprawlmap.jpg";
-import Multicolor from "../Images/Multicolor.png";
 import NashvilleYellow from "../Images/NashvilleYellow.png";
 
 function IntroPage() {

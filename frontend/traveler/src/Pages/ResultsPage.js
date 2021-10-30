@@ -2,7 +2,7 @@ import styled from "styled-components";
 import MainMaps from "../Components/MyDirectionsRenderer";
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router";
-import classes from "../CSS/Results.module.css";
+import classes from "../CSS/MainPage.module.css";
 import { Link } from "react-router-dom";
 
 function ResultsPage(props) {
@@ -76,7 +76,7 @@ function ResultsPage(props) {
         <MapContainer>
           <MainMaps origin={origin} waypoints={waypoints}></MainMaps>
         </MapContainer>
-        <Link to="/MainPage" className={classes.form__button}>
+        <Link className={classes.form__button} to="/MainPage">
           New Route
         </Link>
       </PageWrapper>

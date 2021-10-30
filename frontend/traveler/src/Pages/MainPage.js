@@ -1,5 +1,4 @@
-import styled from "styled-components";
-import { useHistory, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import classes from "../CSS/MainPage.module.css";
 import AutocompleteComponent from "../Components/AutocompleteComponent";
@@ -7,8 +6,6 @@ import AutocompleteComponent from "../Components/AutocompleteComponent";
 function MainPage(props) {
   // this method of doing this is a little uhhhhhhhhhhhhhh bad, but it works
   // I can revisit it in the future. Maybe a struct that can be imported.
-
-  const history = useHistory();
 
   return (
     <div className={classes.mainBody}>
