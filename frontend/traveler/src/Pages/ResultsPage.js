@@ -1,3 +1,8 @@
+// This component page shows the results to the reader, and allows them to redirect to the home page
+// Written by Tammas Hicks and Jordan Smith
+// Team //TODO
+// last modified on 10/29/21
+
 import styled from "styled-components";
 import MainMaps from "../Components/MyDirectionsRenderer";
 import { useState, useEffect } from "react";

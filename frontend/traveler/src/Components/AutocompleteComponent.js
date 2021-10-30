@@ -1,3 +1,8 @@
+// this is the Autocomplete component, for the autocomplete input box
+// Written by Tammas Hicks
+// Team //TODO
+// last modified on 10/29/21
+
 import React from "react";
 import Autocomplete from "react-google-autocomplete";
 import classes from "../CSS/AutocompleteComponent.module.css";

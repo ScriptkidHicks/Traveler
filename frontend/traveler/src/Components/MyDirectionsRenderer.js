@@ -1,3 +1,8 @@
+// This component is used to render directions on a google maps component
+// Written by Tammas Hicks
+// Team //TODO
+// last modified on 10/29/21
+
 import React from "react";
 import {
   GoogleMap,

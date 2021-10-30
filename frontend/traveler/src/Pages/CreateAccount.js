@@ -1,3 +1,8 @@
+// This component page allows the user to create a new account
+// Written by Tammas Hicks
+// Team //TODO
+// last modified on 10/29/21
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import classes from "../CSS/CreateAccount.module.css";

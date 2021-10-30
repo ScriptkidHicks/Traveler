@@ -1,3 +1,8 @@
+// This component page acts as a landing page for the website
+// Written by Tammas Hicks with contributions from Aliya Ward
+// Team //TODO
+// last modified on 10/25/21
+
 import classes from "../CSS/IntroPage.module.css";
 import { Link } from "react-router-dom";
 
