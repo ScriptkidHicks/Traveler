@@ -1,7 +1,52 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import classes from "../CSS/CreateAccount.module.css";
+import { useHistory } from "react-router";
 
 function CreateAccount() {
+  const [userName, setUsername] = useState(null);
+  const [password, setPassword] = useState(null);
+  const [email, setEmail] = useState(null);
+
+  const history = useHistory();
+
+  function usernameChanger(event) {
+    setUsername(event.target.value);
+  }
+
+  function passwordChanger(event) {
+    setPassword(event.target.value);
+  }
+
+  function emailChanger(event) {
+    setEmail(event.target.value);
+  }
+
+  function PostAccount(event) {
+    event.preventDefault();
+    const accountInfo = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/JSON",
+        Contents: "accountInfo",
+      },
+      body: JSON.stringify({
+        username: userName,
+        email: email,
+        password: password,
+      }),
+    };
+
+    fetch("/create_account", accountInfo).then((response) => {
+      if (response.status === 201) {
+        history.push("/MainPage");
+      } else if (response.status === 409) {
+        alert("That user already exists!");
+      } else {
+        alert("Failed to create profile!");
+      }
+    });
+  }
   return (
     <div className={classes.body}>
       <div className={classes.container}>
@@ -10,37 +55,30 @@ function CreateAccount() {
 
           <div className={classes.form__inputGroup}>
             <input
+              onChange={usernameChanger}
               type="username"
               className={classes.form__input}
-              autofocus
+              autoFocus
               placeholder="Username"
             ></input>
           </div>
           <div className={classes.form__inputGroup}>
             <input
-              type="username"
+              onChange={emailChanger}
+              type="email"
               className={classes.form__input}
-              autofocus
               placeholder="Email Address"
             />
           </div>
           <div className={classes.form__inputGroup}>
             <input
+              onChange={passwordChanger}
               type="password"
               className={classes.form__input}
-              autofocus
               placeholder="Password"
             />
           </div>
-          <div className={classes.form__inputGroup}>
-            <input
-              type="password"
-              className={classes.form__input}
-              autofocus
-              placeholder="Confirm Password"
-            />
-          </div>
-          <button className={classes.form__button} type="submit">
+          <button className={classes.form__button} onClick={PostAccount}>
             Continue
           </button>
           <br />

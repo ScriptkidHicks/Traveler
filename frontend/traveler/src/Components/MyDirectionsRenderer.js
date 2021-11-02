@@ -6,11 +6,13 @@ import {
   DirectionsRenderer,
 } from "@react-google-maps/api";
 import GOOGLEMAPS_API_KEY from "../key";
+import styled from "styled-components";
 
 const libraries = ["places", "directions"];
 const mapContainerStyle = {
   width: "100%",
-  height: "50vh",
+  height: "100%",
+  borderRadius: "30px",
 };
 const center = {
   lat: 31.582045,
@@ -18,25 +20,15 @@ const center = {
 };
 
 const MainMaps = (props) => {
+  const [response, setResponse] = React.useState(null);
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: GOOGLEMAPS_API_KEY,
     libraries,
   });
 
-  const [org3, setOrg3] = useState(props.dest1);
-  const [destination3, setDestination3] = useState(props.dest2);
-
-  const waypts = [
-    { location: "salem, or", stopover: true },
-    { location: "Bend, or", stopover: true },
-  ];
-
-  const [origin2, setOrigin2] = React.useState(props.org1);
-  const [destination2, setDestination2] = React.useState(props.dest1);
-  const [response, setResponse] = React.useState(null);
-
   const directionsCallback = (response) => {
-    console.log(response);
+    console.log("response ", response);
+    console.log("waypoints: ", props.waypoints);
 
     if (response !== null) {
       if (response.status === "OK") {
@@ -55,14 +47,14 @@ const MainMaps = (props) => {
   if (!isLoaded) return "loading maps";
 
   const DirectionsServiceOptionTwo = {
-    destination: destination3,
-    origin: org3,
-    waypoints: waypts,
+    destination: props.origin,
+    origin: props.origin,
+    waypoints: props.waypoints,
     travelMode: "DRIVING",
   };
 
   return (
-    <div>
+    <MapContainer>
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
         zoom={8}
@@ -81,8 +73,21 @@ const MainMaps = (props) => {
           callback={directionsCallback}
         />
       </GoogleMap>
-    </div>
+    </MapContainer>
   );
 };
 
 export default MainMaps;
+
+const MapContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 0;
+  margin: 0;
+  height: 800px;
+  width: 55vw;
+  border-radius: 30px;
+  margin: auto;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 1);
+`;

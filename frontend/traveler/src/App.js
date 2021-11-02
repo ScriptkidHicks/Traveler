@@ -1,4 +1,5 @@
 import { Route, Switch } from "react-router-dom";
+import { useState } from "react";
 import "./CSS/App.css";
 
 import IntroPage from "./Pages/IntroPage";
@@ -8,6 +9,32 @@ import SignIn from "./Pages/SignIn";
 import CreateAccount from "./Pages/CreateAccount";
 
 function App() {
+  const [placeOne, setPlaceOne] = useState(null);
+  const [placeTwo, setPlaceTwo] = useState(null);
+  const [placeThree, setPlaceThree] = useState(null);
+  const [placeFour, setPlaceFour] = useState(null);
+  const [placeFive, setPlaceFive] = useState(null);
+  const [placeSix, setPlaceSix] = useState(null);
+  const [placeSeven, setPlaceSeven] = useState(null);
+  const [placeEight, setPlaceEight] = useState(null);
+  const [placeNine, setPlaceNine] = useState(null);
+  const [placeTen, setPlaceTen] = useState(null);
+  const [origin, setOrigin] = useState(null);
+
+  const places = [
+    origin,
+    placeOne,
+    placeTwo,
+    placeThree,
+    placeFour,
+    placeFive,
+    placeSix,
+    placeSeven,
+    placeEight,
+    placeNine,
+    placeTen,
+  ];
+
   return (
     <div>
       <Switch>
@@ -21,10 +48,22 @@ function App() {
           <SignIn />
         </Route>
         <Route path="/MainPage">
-          <MainPage />
+          <MainPage
+            setOne={setPlaceOne}
+            setTwo={setPlaceTwo}
+            setThree={setPlaceThree}
+            setFour={setPlaceFour}
+            setFive={setPlaceFive}
+            setSix={setPlaceSix}
+            setSeven={setPlaceSeven}
+            setEight={setPlaceEight}
+            setNine={setPlaceNine}
+            setTen={setPlaceTen}
+            setOrigin={setOrigin}
+          />
         </Route>
         <Route path="/Results">
-          <ResultsPage />
+          <ResultsPage places={places} />
         </Route>
       </Switch>
     </div>

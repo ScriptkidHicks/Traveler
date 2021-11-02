@@ -100,7 +100,7 @@ class Graph:
             #    print(i.weight, end=" ")
             #print()
         order.append(0)
-        print("cost of traversal: ", cost)
+        # print("cost of traversal: ", cost)
         return order
 
     def mst_order(self):

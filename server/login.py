@@ -1,3 +1,13 @@
+"""
+Filename: login.py
+
+Purpose:
+Contains the login endpoints and functions for the application.
+
+Authors: Tammas Hicks, Jordan Smith
+Group: //Todo
+Last modified: 10/27/21
+"""
 import flask
 import jwt
 import json
@@ -27,8 +37,33 @@ VALID_USERS = [
 ]
 
 ###
+#   Helper functions
+###
+def generate_token(user):
+    payload = {
+        'user_id': user['id'],
+        'exp': datetime.utcnow() + timedelta(seconds=JWT_EXP_DELTA_SECONDS)
+    }
+
+    return jwt.encode(payload, JWT_SECRET, JWT_ALGORITHM)
+
+
+
+###
 #   Route endpoints
 ###
+@login_page.route('/create_account', methods=["POST"])
+def create_account():
+    request_data = json.loads(flask.request.data)
+
+    for USER in VALID_USERS:
+        if (request_data['username'] == USER['username']):
+            return {'message': 'user exists already'}, 409
+
+    VALID_USERS.append({"id": str(len(VALID_USERS)), "username": request_data['username'], "password": request_data['password']})
+
+    return {'message': 'success'}, 201
+
 @login_page.route('/login', methods=["POST"])
 def login():
     # Get the data from the request
@@ -46,16 +81,10 @@ def login():
             current_user = USER
     
     if current_user is None:
-        return {'message': 'Wrong credentials!'}, 400
+        return flask.Response({'message': 'Wrong credentials!'}, status=400)
     
-    payload = {
-        'user_id': current_user['id'],
-        'exp': datetime.utcnow() + timedelta(seconds=JWT_EXP_DELTA_SECONDS)
-    }
-
-    jwt_token = jwt.encode(payload, JWT_SECRET, JWT_ALGORITHM)
-
-    return  {'token': jwt_token}, 200
+    token = generate_token(current_user)
+    return  {'token': token}, 200
 
 @login_page.route('/check_token')
 def validate_token():
