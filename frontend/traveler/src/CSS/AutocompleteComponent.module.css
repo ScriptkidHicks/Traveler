@@ -1,20 +1,17 @@
 .form__input {
-  box-sizing: border-box;
   outline: none;
-  width: 100%;
-  border: solid #ccc 2px;
+  width: 35vw;
+  border: solid #ccc 0.2vh;
   border-radius: var(--border-radius);
   background: #ddd;
   text-align: center;
   transition: ease all 0.2s;
-  height: 4vh;
+  height: 3.2vh;
   margin-top: 1.5vh;
-  padding-bottom: 0;
-  padding-top: 0;
 }
 
 .form__input:focus {
-  border: 2px solid var(--color-primary);
+  border: 0.3vh solid var(--color-primary);
   background: #eeeeee;
   box-shadow: -5px 5px 12px rgba(71, 130, 148, 0.733);
 }
