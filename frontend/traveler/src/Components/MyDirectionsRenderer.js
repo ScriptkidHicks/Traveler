@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+// This component is used to render directions on a google maps component
+// Written by Tammas Hicks
+// Team //TODO
+// last modified on 10/29/21
+
+import React from "react";
 import {
   GoogleMap,
   useLoadScript,
   DirectionsService,
   DirectionsRenderer,
 } from "@react-google-maps/api";
-import GOOGLEMAPS_API_KEY from "../key";
 import styled from "styled-components";
 
 const libraries = ["places", "directions"];
@@ -22,7 +26,7 @@ const center = {
 const MainMaps = (props) => {
   const [response, setResponse] = React.useState(null);
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: GOOGLEMAPS_API_KEY,
+    googleMapsApiKey: process.env.REACT_APP_GOOGLEMAPS_API_KEY,
     libraries,
   });
 
@@ -85,8 +89,8 @@ const MapContainer = styled.div`
   align-content: center;
   padding: 0;
   margin: 0;
-  height: 800px;
-  width: 55vw;
+  height: 80vh;
+  width: 80vw;
   border-radius: 30px;
   margin: auto;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 1);

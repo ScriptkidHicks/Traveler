@@ -18,6 +18,7 @@ from login import login_page
 from key import API_KEY
 import prims2
 
+
 app = flask.Flask(__name__)
 app.register_blueprint(login_page)
 
@@ -122,3 +123,6 @@ def get_order():
 
     return {"origin": origin, "waypoints": tuple(waypoints)}, 201
 
+if __name__ == '__main__':
+    from waitress import serve
+    serve(app, host="0.0.0.0", port="5000")

@@ -1,3 +1,8 @@
+// this is the main housing page which handles routing for all other pages
+// Written by Tammas Hicks
+// Team //TODO
+// last modified on 10/29/21
+
 import { Route, Switch } from "react-router-dom";
 import { useState } from "react";
 import "./CSS/App.css";
@@ -63,7 +68,20 @@ function App() {
           />
         </Route>
         <Route path="/Results">
-          <ResultsPage places={places} />
+          <ResultsPage
+            places={places}
+            setOrg={setOrigin}
+            setOne={setPlaceOne}
+            setTwo={setPlaceTwo}
+            setThree={setPlaceThree}
+            setFour={setPlaceFour}
+            setFive={setPlaceFive}
+            setSix={setPlaceSix}
+            setSeven={setPlaceSeven}
+            setEight={setPlaceEight}
+            setNine={setPlaceNine}
+            setTen={setPlaceTen}
+          />
         </Route>
       </Switch>
     </div>

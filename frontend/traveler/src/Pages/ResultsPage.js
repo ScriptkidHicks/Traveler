@@ -1,11 +1,35 @@
+// This component page shows the results to the reader, and allows them to redirect to the home page
+// Written by Tammas Hicks and Jordan Smith
+// Team //TODO
+// last modified on 10/29/21
+
 import styled from "styled-components";
 import MainMaps from "../Components/MyDirectionsRenderer";
 import { useState, useEffect } from "react";
+import { useHistory } from "react-router";
+import classes from "../CSS/MainPage.module.css";
+import { Link } from "react-router-dom";
 
 function ResultsPage(props) {
   const [loading, setLoading] = useState(true);
   const [origin, setOrigin] = useState(null);
   const [waypoints, setWaypoints] = useState(null);
+  const history = useHistory();
+
+  function setEmpty() {
+    props.setOne(null);
+    props.setTwo(null);
+    props.setThree(null);
+    props.setFour(null);
+    props.setFive(null);
+    props.setSix(null);
+    props.setSeven(null);
+    props.setEight(null);
+    props.setNine(null);
+    props.setTen(null);
+    props.setOrg(null);
+    history.push("/MainPage");
+  }
 
   useEffect(() => {
     const resultsFetch = {
@@ -28,7 +52,7 @@ function ResultsPage(props) {
     //   }
     // });
 
-    fetch("/get_order", resultsFetch)
+    fetch("/api/get_order", resultsFetch)
       .then((response) => {
         if (response.status !== 201) throw new Error(response.status);
         else return response.json(); // Convert the response to json to get the data
@@ -46,9 +70,24 @@ function ResultsPage(props) {
   }, []);
 
   if (loading) {
+    console.log(props.places[0]);
+    if (props.places[0] === undefined || props.places[0] === null) {
+      alert("It looks like you didn't enter an origin point!");
+      history.push("/MainPage");
+    }
     return (
       <PageWrapper>
-        <h1>Loading...</h1>
+        <h1
+          style={{
+            transform: "translate(-50%, -50%)",
+            position: "absolute",
+            top: "50vh",
+            left: "50vw",
+            color: "white",
+          }}
+        >
+          Loading...
+        </h1>
       </PageWrapper>
     );
   } else {
@@ -57,9 +96,14 @@ function ResultsPage(props) {
         <MapContainer>
           <MainMaps origin={origin} waypoints={waypoints}></MainMaps>
         </MapContainer>
-        <WrittenResults>
-          <ResultsTitle>Route Results</ResultsTitle>
-        </WrittenResults>
+        <Link
+          onClick={setEmpty}
+          className={classes.form__button}
+          style={{ borderRadius: "6px" }}
+          to="/MainPage"
+        >
+          New Route
+        </Link>
       </PageWrapper>
     );
   }
@@ -78,24 +122,8 @@ const PageWrapper = styled.div`
 const MapContainer = styled.div`
   position: absolute;
   transform: translate(-50%, -50%);
-  top: 50vh;
-  left: 65vw;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-`;
-
-const WrittenResults = styled.div`
-  position: absolute;
-  background-color: white;
-  transform: translate(-50%, -50%);
-  width: 30vw;
-  height: 79vh;
-  left: 19vw;
-  top: 50vh;
-  border-radius: 20px;
-  border: solid 4px black;
-  box-shadow: 10px 10px 30px black;
+  top: 45vh;
+  left: 50vw;
   display: flex;
   justify-content: center;
   align-content: center;
