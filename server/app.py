@@ -16,7 +16,7 @@ import urllib
 import requests
 from login import login_page
 from key import API_KEY
-import Prims
+import prims2
 
 
 app = flask.Flask(__name__)
@@ -110,8 +110,9 @@ def get_order():
     # pretty_print(adjMatrix)
 
     ## Call the algorithm with the adjacency matrix and get the optimal route
-    algo_results = Prims.solve(adjMatrix)
-    
+
+    algo_results = prims2.solve(adjMatrix)
+
 
     # Get the waypoints from the rest of the points
     # We don't need the first or last point from the algo_results, since they are just the origin
@@ -121,7 +122,6 @@ def get_order():
     #print(waypoints)
 
     return {"origin": origin, "waypoints": tuple(waypoints)}, 201
-
 
 if __name__ == '__main__':
     from waitress import serve
