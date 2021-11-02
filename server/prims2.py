@@ -10,8 +10,8 @@ from sys import maxsize
 class Graph():
  
     def __init__(self, vertices):
-        self.V = vertices
-        self.graph = [[0 for column in range(vertices)]
+        self.V = vertices #size of graph
+        self.graph = [[0 for column in range(vertices)] #initialize the graph based off size
                     for row in range(vertices)]
 
     def __repr__(self): 
@@ -21,6 +21,10 @@ class Graph():
         return "self.graph"
  
     def minEdge(self, currentNode, visited):
+        '''
+        Helper function to find the minimum edge connected to the current node
+        returns the connected node with the min edge
+        '''
         min_edge = maxsize
         min_node = None
         for v in range(self.V):
@@ -35,6 +39,9 @@ class Graph():
         return min_node
  
     def primMST(self):
+        '''
+        constructs the ordered route based of shortest path.
+        '''
         visited = [False] * self.V # keep track of visited nodes
         visited[0] = True
         route = [0] * (self.V) # Array to store constructed route
@@ -46,7 +53,7 @@ class Graph():
             route[i] = u
             #print(u)
             visited[u] = True
-        route.insert(0, 0)
+        route.insert(0, 0) # First node is always the end point
         return route
  
 def solve(matrix):
