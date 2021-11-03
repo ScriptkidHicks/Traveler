@@ -7,20 +7,28 @@ Authors:
 CIS 422 @ University of Oregon
 Team: //TODO
 Tammas Hicks, Thomas Joyce, Evan Pariser, Jordan Smith, Aliya Ware
+Creation Date: Oct. 3, 2021 
 Last Modified: Nov 2, 2021
 
-Technologies
+Technologies Used:
 * Flask
 * React
 * Google Maps API
 
-Requirements
+Requirements:
 * Internet
-* MacOS 10.14+, Windows 10+, or Linux
+* MacOS 10.12+, Windows 10+, or Linux
 * Google Chrome, Safari or Firefox
 
 How to use:
 Click this link: https://traveler-us8cr.ondigitalocean.app/
+
+Subdirectories:
+* Software Design Specification report
+* Software Requirements Specification report
+* Project Plan
+* User Documentation
+* Programmer Documentation
 
 Contributors
 Tammas Hicks:  tammas@uregon.edu
